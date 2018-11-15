@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "aos": "^2.3.4",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-materialize": "^2.4.8",

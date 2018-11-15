@@ -1,0 +1,91 @@
+.background{
+    background: #2e1f01;
+    height: minmax(500px, 90vh);
+    width: 100vw;
+    background: url("../body/paralaxview1.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+}
+
+.body-welcome-message-wrapper{
+    display: grid;
+    grid-template-columns: auto minmax(300px, 50vw) auto;
+    grid-template-rows: 100px minmax(350px, 50vh) 200px;
+
+}
+
+.body-welcome-message{
+    background: rgba(255, 255, 255, 0.288);
+    border-radius: 20px;
+    animation: slide-greeting 1s, greeting-opacity 1.5s;
+}
+
+.body-welcome-text{
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: 1fr;
+    justify-content: center;
+    text-align: center;
+    font-size: 5em;
+    height: 100%;
+    margin-top: 10vh;
+    color: rgb(0, 0, 0);
+
+}
+
+@keyframes slide-greeting {
+    from { 
+        position: relative;
+        right: 200px
+     }
+    to   { 
+        position: relative;
+        right: 0
+    }
+}
+
+@keyframes greeting-opacity {
+    from { 
+        opacity: 0;
+     }
+    to   { 
+        opacity: 1; 
+    }
+}
+
+/* .body-first-boxes{
+    height: 500px;
+    display: grid;
+    grid-template-columns: 250px 250px 250px 250px;
+    grid-template-rows: 10px 250px 250px;
+    grid-gap: 10px;
+    justify-content: center;
+} */
+
+/* .picture-boxes-wrapper{
+    
+} */
+
+
+@media screen and (max-width: 910px) {
+
+    .body-welcome-text{
+        font-size: 4em;
+    
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+
+    .body-welcome-message-wrapper{
+        grid-template-rows: 50px minmax(350px, 50vh) 200px;
+    
+    }
+}
+
+

@@ -9,9 +9,8 @@ class navBar extends React.Component {
         return (
             <div>
             <Navbar className="navMain">
-            <img width={80} height={45} className="navImg" src={logo}/>
+            <img width={80} height={45} className="navImg" alt="Logo" src={logo}/>
             </Navbar>
-            <Body></Body>
 
             </div>
         )
