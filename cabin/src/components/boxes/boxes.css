@@ -1,0 +1,225 @@
+
+.body-one-boxes{
+    display: grid;
+    grid-template-columns: 700px;
+    grid-gap: 20px;
+    justify-content: center;
+}
+
+.body-two-boxes{
+    display: grid;
+    grid-template-columns: 320px 320px 320px;
+    grid-template-rows: 320px;
+    grid-gap: 20px;
+    justify-content: center;
+}
+
+.first-box{
+    width: 700px;
+    height: 350px;
+    background: url('../boxes/coffeemenu.jpg');
+    /* background-attachment: fixed; */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 20px;
+}
+
+.second-box{
+    width: 320px;
+    height: 320px;
+}
+
+.boxes-space{
+    height: 50px;
+    width: 100%;
+}
+
+.boxes-space-two{
+    display: block;
+    height: 5px;
+    width: 100%;
+}
+
+.body-boxes-overlay-two{
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    background: rgb(0, 0, 0);
+    opacity: 0;
+    transition: all ease 0.3s;
+}
+
+.body-boxes-overlay-one{
+    position: absolute;
+    width: 700px;
+    height: 350px;
+    background: rgb(0, 0, 0);
+    opacity: 0;
+    transition: all ease 0.3s;
+}
+
+.box-one-text{
+    text-align: center;
+    font-size: 50px;
+    line-height: 300px;
+    color: white;
+    width: 100%;
+    height: 100%;
+}
+
+
+.box-two-text{
+    text-align: center;
+    font-size: 50px;
+    line-height: 260px;
+    color: white;
+    width: 100%;
+    height: 100%;
+}
+
+.body-boxes-overlay-two:hover{
+    opacity: 0.8;
+}
+
+.body-boxes-overlay-one:hover{
+    opacity: 0.8;
+}
+
+@media screen and (max-width: 1030px) {
+    
+    .body-one-boxes{
+        display: grid;
+        grid-template-columns: 560px;
+        grid-gap: 20px;
+        justify-content: center;
+    }
+    
+    .body-two-boxes{
+        display: grid;
+        grid-template-columns: 220px 220px 220px;
+        grid-template-rows: 220px;
+        grid-gap: 20px;
+        justify-content: center;
+    }
+    
+    .first-box{
+        width: 560px;
+        height: 250px;
+    }
+    
+    .second-box{
+        width: 220px;
+        height: 220px;
+    }
+
+    .body-boxes-overlay-two{
+        position: absolute;
+        width: 220px;
+        height: 220px;
+        background: rgb(0, 0, 0);
+        opacity: 0;
+        transition: all ease 0.3s;
+    }
+    
+    
+    .box-two-text{
+        text-align: center;
+        font-size: 35px;
+        line-height: 200px;
+        color: white;
+        width: 100%;
+        height: 100%;
+    }
+
+    .body-boxes-overlay-one{
+        position: absolute;
+        width: 560px;
+        height: 250px;
+        background: rgb(0, 0, 0);
+        opacity: 0;
+        transition: all ease 0.3s;
+    }
+    
+    .box-one-text{
+        text-align: center;
+        font-size: 35px;
+        line-height: 250px;
+        color: white;
+        width: 100%;
+        height: 100%;
+    }
+
+}
+
+@media screen and (max-width: 720px) {
+
+    .body-one-boxes{
+        display: grid;
+        grid-template-columns: 400px;
+        grid-gap: 20px;
+        justify-content: center;
+    }
+    
+    .body-two-boxes{
+        display: grid;
+        grid-template-columns: 400px;
+        grid-template-rows: 400px;
+        grid-gap: 20px;
+        justify-content: center;
+    }
+    
+    .first-box{
+        width: 400px;
+        height: 400px;
+    }
+    
+    .second-box{
+        width: 400px;
+        height: 400px;
+    }
+
+    .boxes-space-two{
+        height: 10px;
+        width: 100%;
+    }
+
+    .body-boxes-overlay-two{
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        background: rgb(0, 0, 0);
+        opacity: 0;
+        transition: all ease 0.3s;
+    }
+    
+    .body-boxes-overlay-one{
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        background: rgb(0, 0, 0);
+        opacity: 0;
+        transition: all ease 0.3s;
+    }
+
+    .box-two-text{
+        text-align: center;
+        font-size: 50px;
+        line-height: 300px;
+        color: white;
+        width: 100%;
+        height: 100%;
+    }
+
+    .box-one-text{
+        text-align: center;
+        font-size: 50px;
+        line-height: 300px;
+        color: white;
+        width: 100%;
+        height: 100%;
+    }
+
+}
+
+

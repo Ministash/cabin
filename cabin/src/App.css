@@ -1,4 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Acme');
+
+
+
 * {
+  margin: 0;
+  padding: 0;
   font-family: 'Acme', sans-serif;
+}
+
+
+body{
+  height: 100%;
+  width: 100%;
+}
+
+.x {
+  -webkit-user-select: none;
+  -moz-user-select: none;     
+  -ms-user-select: none;      
+  user-select: none; 
 }

@@ -1,0 +1,98 @@
+.body-sideboxes-wrapper{
+    margin-top: 20px;
+}
+
+.body-sideboxes-wrapper-individual-grid-left{
+    position: relative;
+    display: grid;
+
+}
+
+.body-sideboxes-wrapper-individual-grid-right{
+    display: grid;
+    /* grid-template-columns:  */
+}
+
+
+
+.body-sideboxes-picture-left-1{
+    width: 600px;
+    height: 350px;
+    background: url('../sideBoxes/drink.jpg');
+    /* background-attachment: fixed; */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 20px;
+}
+
+.body-sideboxes-picture-left-2{
+    width: 600px;
+    height: 350px;
+    background: url('../sideBoxes/burrito.jpg');
+    /* background-attachment: fixed; */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 20px;
+}
+
+.body-sideboxes-overlay-left{
+    position: absolute;
+    top: 10px;
+    width: 580px;
+    height: 330px;
+    background: rgba(0, 0, 0, 0);
+}
+
+.body-sideboxes-overlay-left:hover{
+    animation: sidebox-color 0.9s, sidebox-slide 0.6s;
+    animation-fill-mode: forwards;
+    
+}
+
+@keyframes sidebox-color {
+    
+    from { 
+        background: rgba(0, 0, 0, 0);
+     }
+    to   { 
+        background: rgba(0, 0, 0, 0.685);
+    }
+}
+
+@keyframes sidebox-slide {
+    
+    from { 
+        width: 0px;
+     }
+    to   { 
+        width: 580px;
+    }
+}
+
+
+
+/*/////////// right stuff ///////////////////////////////////////////*/
+
+.body-sideboxes-picture-right-1{
+    width: 600px;
+    height: 350px;
+    background: url('../sideBoxes/cozy.jpg');
+    /* background-attachment: fixed; */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 20px;
+}
+
+.body-sideboxes-picture-right-2{
+    width: 600px;
+    height: 350px;
+    background: url('../sideBoxes/drinks.jpg');
+    /* background-attachment: fixed; */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 20px;
+}

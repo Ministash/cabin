@@ -1,5 +1,9 @@
 .navMain{
     background: #d8c37a;
+    position: sticky;
+    top: 0px;
+    bottom: 0px;
+    z-index: 1;
 }
 
 .navImg{
@@ -7,3 +11,4 @@
     margin-top: 10px;
     margin-bottom: -10px;
 }
+
