@@ -9,6 +9,7 @@
 }
 
 .body-sideboxes-wrapper-individual-grid-right{
+    position: relative;
     display: grid;
     /* grid-template-columns:  */
 }
@@ -96,3 +97,20 @@
     background-size: cover;
     margin-bottom: 20px;
 }
+
+.body-sideboxes-overlay-right{
+    position: absolute;
+    top: 10px;
+    width: 0;
+    height: 330px;
+    background-color: rgba(0, 0, 0, 0);
+    transition: width .6s ease, background-color 0.9s ease;
+}
+
+.body-sideboxes-wrapper-individual-grid-right:hover .body-sideboxes-overlay-right{
+    width: 580px;
+    background: rgba(0, 0, 0, 0.685);
+}
+
+
+
