@@ -5,19 +5,23 @@
 .body-sideboxes-wrapper-individual-grid-left{
     position: relative;
     display: grid;
+    grid-template-columns: 700px auto;
 
 }
 
 .body-sideboxes-wrapper-individual-grid-right{
-    position: relative;
     display: grid;
-    /* grid-template-columns:  */
+    grid-template-columns: auto 700px;
+}
+
+.relative-position{
+    position: relative;
 }
 
 
 
 .body-sideboxes-picture-left-1{
-    width: 600px;
+    width: 700px;
     height: 350px;
     background: url('../sideBoxes/drink.jpg');
     /* background-attachment: fixed; */
@@ -28,7 +32,7 @@
 }
 
 .body-sideboxes-picture-left-2{
-    width: 600px;
+    width: 700px;
     height: 350px;
     background: url('../sideBoxes/burrito.jpg');
     /* background-attachment: fixed; */
@@ -41,35 +45,20 @@
 .body-sideboxes-overlay-left{
     position: absolute;
     top: 10px;
-    width: 580px;
+    width: 0;
     height: 330px;
-    background: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
+    transition: width .6s ease, background-color 0.9s ease;
 }
 
-.body-sideboxes-overlay-left:hover{
-    animation: sidebox-color 0.9s, sidebox-slide 0.6s;
-    animation-fill-mode: forwards;
-    
+.body-sideboxes-picture-left-1:hover .body-sideboxes-overlay-left{
+    width: 660px;
+    background: rgba(0, 0, 0, 0.685);   
 }
 
-@keyframes sidebox-color {
-    
-    from { 
-        background: rgba(0, 0, 0, 0);
-     }
-    to   { 
-        background: rgba(0, 0, 0, 0.685);
-    }
-}
-
-@keyframes sidebox-slide {
-    
-    from { 
-        width: 0px;
-     }
-    to   { 
-        width: 580px;
-    }
+.body-sideboxes-picture-left-2:hover .body-sideboxes-overlay-left{
+    width: 660px;
+    background: rgba(0, 0, 0, 0.685);   
 }
 
 
@@ -77,7 +66,8 @@
 /*/////////// right stuff ///////////////////////////////////////////*/
 
 .body-sideboxes-picture-right-1{
-    width: 600px;
+    display: block;
+    width: 700px;
     height: 350px;
     background: url('../sideBoxes/cozy.jpg');
     /* background-attachment: fixed; */
@@ -85,10 +75,12 @@
     background-repeat: no-repeat;
     background-size: cover;
     margin-bottom: 20px;
+    
 }
 
 .body-sideboxes-picture-right-2{
-    width: 600px;
+    display: block;
+    width: 700px;
     height: 350px;
     background: url('../sideBoxes/drinks.jpg');
     /* background-attachment: fixed; */
@@ -100,17 +92,72 @@
 
 .body-sideboxes-overlay-right{
     position: absolute;
+    bottom: 0;
+    left: 100%;
+    right: 0;
     top: 10px;
+    background-color: rgb(0, 0, 0);
+    overflow: hidden;
     width: 0;
     height: 330px;
-    background-color: rgba(0, 0, 0, 0);
-    transition: width .6s ease, background-color 0.9s ease;
+     transition: .5s ease;
 }
 
-.body-sideboxes-wrapper-individual-grid-right:hover .body-sideboxes-overlay-right{
-    width: 580px;
-    background: rgba(0, 0, 0, 0.685);
+.body-sideboxes-picture-right-1:hover .body-sideboxes-overlay-right{
+    width: 660px;
+    background: rgba(0, 0, 0, 0.685);  
+    left: 39px; 
 }
+
+
+.body-sideboxes-picture-right-2:hover .body-sideboxes-overlay-right{
+    width: 660px;
+    background: rgba(0, 0, 0, 0.685); 
+    left: 0;   
+}
+
+/*//////////////////////////////////////*/
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 100%;
+    right: 0;
+    background-color: #008CBA;
+    overflow: hidden;
+    width: 0;
+    height: 100%;
+    transition: .5s ease;
+  }
+
+.container {
+    position: relative;
+    width: 100%;
+  }
+  
+  .image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  
+  .container:hover .overlay {
+    width: 100%;
+    left: 0;
+  }
+  
+  .text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+  }
 
 
 
