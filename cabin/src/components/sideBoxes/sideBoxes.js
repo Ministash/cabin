@@ -8,29 +8,70 @@ import drinks from "../sideBoxes/drink.jpg";
 
 
 
-class Boxes extends React.Component {
+class sideBoxes extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isDesktop: false,
+            textClassRight: "body-sideboxes-overlay-right-text"
+        };
+
+        this.updatePredicate = this.updatePredicate.bind(this);
+    }
+
+    componentDidMount() {
+        this.updatePredicate();
+        window.addEventListener("resize", this.updatePredicate);
+    }
+
+    componentWillMount() {
+        window.removeEventListener("resize", this.updatePredicate);
+    }
+
+    updatePredicate() {
+        this.setState({ isDesktop: window.innerWidth > 1040 });
+    }
+
+
 
 
     render() {
+        const isDesktop = this.state.isDesktop;
+
         return (
             <div className="body-sideboxes-wrapper">
 
                 <div className="body-sideboxes-wrapper-individual-grid-left">
                     <div className="body-sideboxes-picture-left-1">
                         <div className="body-sideboxes-overlay-left">
-                            <div className="body-sideboxes-overlay-left-text">
+
+                            {isDesktop ? (<div className="body-sideboxes-overlay-left-text">
                                 Our Drinks
-                            </div>
-                        </div>
-                    </div>
-                    <div className="body-sideboxes-left-text-wrapper">
-                        <p className="body-sideboxes-left-text">
-                            From creamy lattes to frozen treats- we have it all.
-                            Encompassing a syrup list of over (Whatever number)
+                            </div>) : (
+                                    <div className="body-sideboxes-overlay-left-text">
+                                        Our Drinks
+
+                                        From creamy lattes to frozen treats- we have it all.
+                            Encompassing a syrup, sauce, and sugar free list of over 65+ choices
                             we have just about every flavor that your heart could desire.
                             Not feeling something sweet? We also serve everything from cold brewed coffee to
                             replacement breakfast smoothies. We aim to please!
-                    </p>
+                                    </div>
+
+                                )}
+                        </div>
+                    </div>
+                    <div className="body-sideboxes-left-text-wrapper">
+                        {isDesktop ? (<p className="body-sideboxes-left-text">
+                            From creamy lattes to frozen treats- we have it all.
+                            Encompassing a syrup, sauce, and sugar free list of over 65+ choices
+                            we have just about every flavor that your heart could desire.
+                            Not feeling something sweet? We also serve everything from cold brewed coffee to
+                            replacement breakfast smoothies. We aim to please!
+                    </p>) : (
+                        <p></p>
+                    )}
+
                     </div>
                 </div>
 
@@ -76,4 +117,4 @@ class Boxes extends React.Component {
     }
 };
 
-export default Boxes;
+export default sideBoxes;
