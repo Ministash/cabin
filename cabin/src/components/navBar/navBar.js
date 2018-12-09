@@ -1,15 +1,20 @@
 import React from "react";
 import "./navBar.css";
-import {Navbar} from 'react-materialize';
 import logo from '../navBar/logo.png'
 
 class navBar extends React.Component {
 
     render() {
         return (
-            <Navbar className="navMain">
-            <img width={80} height={45} className="navImg" alt="Logo" src={logo}/>
-            </Navbar>
+            <div className="navMain">
+                <div></div>
+                <img width={80} height={45} brand="logo" className="navImg" alt="Logo" src={logo} />
+                <div></div>
+                <div className="navLink">Menu</div>
+                <div className="navLink">About Us</div>
+                <div className="navLink">Location</div>
+                <div className="navLink">Contact</div>
+            </div>
         )
     }
 };

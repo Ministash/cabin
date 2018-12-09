@@ -1,14 +1,19 @@
 .navMain{
     background: #d8c37a;
     position: sticky;
+    height: 60px;
     top: 0px;
     bottom: 0px;
     z-index: 1;
+    display: grid;
+    grid-template-columns: 10px 80px auto 100px 100px 100px 100px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.589);
 }
 
 .navImg{
-    margin-left: 20px;
-    margin-top: 10px;
-    margin-bottom: -10px;
+    margin-top: 5px;
 }
 
+.navMain:hover .navLink{
+    background: black;
+}

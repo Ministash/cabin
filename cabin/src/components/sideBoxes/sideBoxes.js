@@ -49,8 +49,6 @@ class sideBoxes extends React.Component {
                                 Our Drinks
                             </div>) : (
                                     <div className="body-sideboxes-overlay-left-text">
-                                        Our Drinks
-
                                         From creamy lattes to frozen treats- we have it all.
                             Encompassing a syrup, sauce, and sugar free list of over 65+ choices
                             we have just about every flavor that your heart could desire.
@@ -69,20 +67,40 @@ class sideBoxes extends React.Component {
                             Not feeling something sweet? We also serve everything from cold brewed coffee to
                             replacement breakfast smoothies. We aim to please!
                     </p>) : (
-                        <p></p>
-                    )}
+                                <p></p>
+                            )}
 
                     </div>
                 </div>
 
                 <div className="body-sideboxes-wrapper-individual-grid-right">
-                    <div className="body-sideboxes-right-text">Hello</div>
+                    <div className="body-sideboxes-right-text-wrapper">
+                        {isDesktop ? (<p className="body-sideboxes-right-text">
+                            From creamy lattes to frozen treats- we have it all.
+                            Encompassing a syrup, sauce, and sugar free list of over 65+ choices
+                            we have just about every flavor that your heart could desire.
+                            Not feeling something sweet? We also serve everything from cold brewed coffee to
+                            replacement breakfast smoothies. We aim to please!
+                    </p>) : (
+                                <p></p>
+                            )}
+
+                    </div>
                     <div className="relative-position">
                         <div className="body-sideboxes-picture-right-1">
                             <div className="body-sideboxes-overlay-right">
-                                <div className="body-sideboxes-overlay-right-text">
+                                {isDesktop ? (<div className="body-sideboxes-overlay-right-text">
                                     Our Food
-                                </div>
+                            </div>) : (
+                                        <div className="body-sideboxes-overlay-right-text">
+                                            From creamy lattes to frozen treats- we have it all.
+                                Encompassing a syrup, sauce, and sugar free list of over 65+ choices
+                                we have just about every flavor that your heart could desire.
+                                Not feeling something sweet? We also serve everything from cold brewed coffee to
+                                replacement breakfast smoothies. We aim to please!
+                                    </div>
+
+                                    )}
                             </div>
                         </div>
                     </div>
@@ -91,23 +109,64 @@ class sideBoxes extends React.Component {
                 <div className="body-sideboxes-wrapper-individual-grid-left">
                     <div className="body-sideboxes-picture-left-2">
                         <div className="body-sideboxes-overlay-left">
-                            <div className="body-sideboxes-overlay-left-text">
+                            {isDesktop ? (<div className="body-sideboxes-overlay-left-text">
                                 Our Style
-                            </div>
+                            </div>) : (
+                                    <div className="body-sideboxes-overlay-left-text">
+                                        From creamy lattes to frozen treats- we have it all.
+                            Encompassing a syrup, sauce, and sugar free list of over 65+ choices
+                            we have just about every flavor that your heart could desire.
+                            Not feeling something sweet? We also serve everything from cold brewed coffee to
+                            replacement breakfast smoothies. We aim to please!
+                                    </div>
+
+                                )}
                         </div>
                     </div>
-                    <div className="body-sideboxes-left-text">Hello</div>
+                    <div className="body-sideboxes-left-text-wrapper">
+                        {isDesktop ? (<p className="body-sideboxes-left-text">
+                            From creamy lattes to frozen treats- we have it all.
+                            Encompassing a syrup, sauce, and sugar free list of over 65+ choices
+                            we have just about every flavor that your heart could desire.
+                            Not feeling something sweet? We also serve everything from cold brewed coffee to
+                            replacement breakfast smoothies. We aim to please!
+                    </p>) : (
+                                <p></p>
+                            )}
+
+                    </div>
                 </div>
 
                 <div className="body-sideboxes-wrapper-individual-grid-right">
-                    <div className="body-sideboxes-right-text">Hello</div>
+                    <div className="body-sideboxes-right-text-wrapper">
+                        {isDesktop ? (<p className="body-sideboxes-right-text">
+                            From creamy lattes to frozen treats- we have it all.
+                            Encompassing a syrup, sauce, and sugar free list of over 65+ choices
+                            we have just about every flavor that your heart could desire.
+                            Not feeling something sweet? We also serve everything from cold brewed coffee to
+                            replacement breakfast smoothies. We aim to please!
+                    </p>) : (
+                                <p></p>
+                            )}
+
+                    </div>
                     <div className="relative-position">
                         <div className="body-sideboxes-picture-right-2">
                             <div className="body-sideboxes-overlay-right">
-                                <div className="body-sideboxes-overlay-right-text">
+                                {isDesktop ? (<div className="body-sideboxes-overlay-right-text">
                                     Our Community
-                                </div>
+                            </div>) : (
+                                        <div className="body-sideboxes-overlay-right-text">
+                                            From creamy lattes to frozen treats- we have it all.
+                                Encompassing a syrup, sauce, and sugar free list of over 65+ choices
+                                we have just about every flavor that your heart could desire.
+                                Not feeling something sweet? We also serve everything from cold brewed coffee to
+                                replacement breakfast smoothies. We aim to please!
+                                    </div>
+
+                                    )}
                             </div>
+
                         </div>
                     </div>
                 </div>
