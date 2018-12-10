@@ -14,6 +14,11 @@
     margin-top: 5px;
 }
 
-.navMain:hover .navLink{
-    background: black;
+.navLink{
+    text-align: center;
+    line-height: 50px;
+}
+
+.navLink:hover{
+    background: rgba(0, 0, 0, 0.116);
 }
