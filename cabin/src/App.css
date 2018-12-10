@@ -20,3 +20,36 @@ body{
   -ms-user-select: none;      
   user-select: none; 
 }
+
+.link{
+  text-decoration: none;
+  color: black !important;
+}
+
+
+link:link {
+  color: rgb(0, 0, 0);
+}
+
+/* visited link */
+link:visited {
+  color: rgb(0, 0, 0);
+}
+
+/* mouse over link */
+link:hover {
+  color: rgb(0, 0, 0);
+}
+
+/* selected link */
+link:active {
+  color: rgb(0, 0, 0);
+}
+
+
+a {
+  color: rgb(0, 0, 0);
+}
+a:hover {
+   color: rgb(0, 0, 0)
+}

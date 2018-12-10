@@ -17,6 +17,8 @@
 .navLink{
     text-align: center;
     line-height: 50px;
+    cursor: pointer;
+    color: black;
 }
 
 .navLink:hover{
