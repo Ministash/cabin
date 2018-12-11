@@ -1,5 +1,6 @@
 import React from "react";
 import "./body.css";
+import API from "../../utils/API";
 import Boxes from '../boxes/index';
 import SideBoxes from "../sideBoxes/index";
 
@@ -7,9 +8,18 @@ import SideBoxes from "../sideBoxes/index";
 
 
 class Body extends React.Component {
+    state = {
+        lattes: []
+      };
 
+    loadLattes = () => {
+        API.getLattes()
+        .then(res => this.setState({ lattes: res.data }))
+        .catch(err => console.log(err));
+    }
 
     render() {
+      console.log(this.state.lattes);
         return (
             <div>
                 <div className="background">

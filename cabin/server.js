@@ -1,9 +1,9 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 const routes = require("./routes");
-
-
 var app = express();
+const db = require('./models');
+
 var PORT = process.env.PORT || 3001;
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -17,6 +17,9 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 // Starts the server to begin listening
 // =============================================================
-app.listen(PORT, function() {
-  console.log("App listening on PORT " + PORT);
+db.sequelize.sync().then(function () {
+  http.listen(PORT, function () {
+      // Log (server-side) when our server has started
+      console.log("Sequelize Server listening on: http://localhost:" + PORT);
+  });
 });

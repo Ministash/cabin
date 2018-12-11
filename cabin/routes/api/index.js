@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const cabinRoutes = require("./routes");
+const lattes = require("./lattes");
 
 
-router.use("/routes", cabinRoutes);
+router.use("/routes", lattes);
 
 module.exports = router;
