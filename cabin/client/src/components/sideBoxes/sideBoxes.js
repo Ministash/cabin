@@ -1,6 +1,6 @@
 import React from "react";
 import "./sideBoxes.css";
-import drinks from "../sideBoxes/drink.jpg";
+// import drinks from "../sideBoxes/drink.jpg";
 // import food from '../sideBoxes/burrito.jpg';
 // import people from '../sideBoxes/drinks.jpg';
 // import cabinPic from '../sideBoxes/cozy.jpg';
