@@ -15,11 +15,11 @@ if (process.env.NODE_ENV === "production") {
 }
 
 app.use(routes);
+
 // Starts the server to begin listening
 // =============================================================
-db.sequelize.sync().then(function () {
-  http.listen(PORT, function () {
-      // Log (server-side) when our server has started
-      console.log("Sequelize Server listening on: http://localhost:" + PORT);
+db.sequelize.sync({ force: false }).then(function() {
+    app.listen(PORT, function() {
+      console.log("App listening on PORT " + PORT);
+    });
   });
-});

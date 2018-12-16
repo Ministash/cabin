@@ -2,6 +2,7 @@
   "name": "cabin",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001/",
   "dependencies": {
     "aos": "^2.3.4",
     "react": "^16.6.0",

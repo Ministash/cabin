@@ -8,7 +8,7 @@ module.exports = function (sequelize, DataTypes) {
             }
         },
         price: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
             allowNull: true,
             validate: {
                 len: [1, 100]

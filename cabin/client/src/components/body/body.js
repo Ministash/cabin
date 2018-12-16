@@ -10,16 +10,27 @@ import SideBoxes from "../sideBoxes/index";
 class Body extends React.Component {
     state = {
         lattes: []
-      };
+    };
+
+    componentDidMount() {
+        this.loadLattes();
+    }
 
     loadLattes = () => {
-        API.getLattes()
-        .then(res => this.setState({ lattes: res.data }))
-        .catch(err => console.log(err));
+        // API.getLattes()
+        //     .then = (res) => {
+        //         this.setState({ lattes: res.data }).catch(err => console.log(err));
+        //     }
+
+        //     API.pushLattes()
+        //     .then = (res) => {console.log(res)};
+        API.Hello().then = (res) => {console.log(res)};
+            
     }
 
     render() {
-      console.log(this.state.lattes);
+        console.log(this.state.lattes);
+
         return (
             <div>
                 <div className="background">
@@ -33,6 +44,7 @@ class Body extends React.Component {
                             <div className="body-welcome-text">
                                 <div></div>
                                 <div>Welcome To The Cabin Family</div>
+                                <div></div>
 
                             </div>
                         </div>
