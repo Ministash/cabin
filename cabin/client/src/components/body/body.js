@@ -17,14 +17,13 @@ class Body extends React.Component {
     }
 
     loadLattes = () => {
-        // API.getLattes()
-        //     .then = (res) => {
-        //         this.setState({ lattes: res.data }).catch(err => console.log(err));
-        //     }
+        API.getLattes()
+            .then = (res) => {
+                this.setState({ lattes: res.data }).catch(err => console.log(err));
+            }
 
-        //     API.pushLattes()
-        //     .then = (res) => {console.log(res)};
-        API.Hello().then = (res) => {console.log(res)};
+            API.pushLattes()
+            .then = (res) => {console.log(res)};
             
     }
 
