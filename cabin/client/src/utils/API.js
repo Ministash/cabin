@@ -11,10 +11,5 @@ export default {
     .then(resp => {console.log(resp.data)})
     .catch(error=>{console.log(error)});
   }
-  // Hello: function () {
-  //   return axios.get("/hello")
-  //     .then(resp => { console.log(resp.data) })
-  //     .catch(error => { console.log(error) });
-  // }
 
 };

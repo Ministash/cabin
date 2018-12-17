@@ -1,22 +1,6 @@
 const router = require("express").Router();
 const db = require("../../models");
 
-
-// router.route('/hello', (req, res) => {
-//       // let id = 1;
-//       //   db.Lattes.findOne({
-//       //       where: {
-//       //           id: id
-//       //       }
-//       //   })
-//       //   .then(function (response) {
-//       //       console.log("Hunter");
-//       //       res.send(response);
-//       //   });
-//       // res.send("Hello There");
- 
-// });
-
 router.route("/now")
 
 .post(function(req, res){
