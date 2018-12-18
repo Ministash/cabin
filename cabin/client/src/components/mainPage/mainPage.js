@@ -1,6 +1,5 @@
 import React from "react";
 import "./mainPage.css";
-import API from "../../utils/API";
 import Boxes from '../../components/mainPage/boxes/index';
 import SideBoxes from "../../components/mainPage/sideBoxes/index";
 import Navbar from "../../components/navBar/index";

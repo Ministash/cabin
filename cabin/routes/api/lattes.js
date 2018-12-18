@@ -1,19 +1,23 @@
 const router = require("express").Router();
 const db = require("../../models");
 
-router.route("/now")
+router.route("/")
 
 .post(function(req, res){
     let newLatte = {
-        name: "Matt and Tracy",
-        price: 5,
-        flavor: "Caramel and Vanilla",
-        temperature: "Hot/Cold"
+        name: "Lodge",
+        price1: 4.23,
+        price2: 4.88,
+        price3: 5.23,
+        flavor: "Mocha and Peppermint",
+        temperature: 3
     }
 
     db.Lattes.create({
         name: newLatte.name,
-        price: newLatte.price,
+        price1: newLatte.price1,
+        price2: newLatte.price2,
+        price3: newLatte.price3,
         flavor: newLatte.flavor,
         temperature: newLatte.temperature
     }).then(function (data){
@@ -22,15 +26,9 @@ router.route("/now")
 })
 
 .get(function(req, res){
-    let id = 1;
-        db.Lattes.findOne({
-            where: {
-                id: id
-            }
-        })
-        .then(function (response) {
-            console.log("Hunter");
-            res.send(response);
+        db.Lattes.findAll({})
+        .then(function (data) {
+            res.send({lattes: data});
         });
     });
     
