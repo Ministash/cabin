@@ -1,18 +1,20 @@
 import React from "react";
-import "./body.css";
+import "./mainPage.css";
 import API from "../../utils/API";
-import Boxes from '../boxes/index';
-import SideBoxes from "../sideBoxes/index";
+import Boxes from '../../components/mainPage/boxes/index';
+import SideBoxes from "../../components/mainPage/sideBoxes/index";
+import Navbar from "../../components/navBar/index";
 
 
 
 
-class Body extends React.Component {
+class MainPage extends React.Component {
 
     render() {
 
         return (
             <div>
+                <Navbar></Navbar>
                 <div className="background">
                     <div className="body-welcome-message-wrapper">
                         <div></div>
@@ -41,4 +43,4 @@ class Body extends React.Component {
     }
 };
 
-export default Body;
+export default MainPage;
