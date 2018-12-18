@@ -7,7 +7,21 @@ module.exports = function (sequelize, DataTypes) {
                 len: [1, 100]
             }
         },
-        price: {
+        price1: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            validate: {
+                len: [1, 100]
+            }
+        },
+        price2: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            validate: {
+                len: [1, 100]
+            }
+        },
+        price3: {
             type: DataTypes.INTEGER,
             allowNull: true,
             validate: {
@@ -22,7 +36,7 @@ module.exports = function (sequelize, DataTypes) {
             }
         },
         temperature: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
             allowNull: true,
             validate: {
                 len: [1, 150]
