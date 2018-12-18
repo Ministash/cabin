@@ -17,20 +17,17 @@ module.exports = function (sequelize, DataTypes) {
         flavor: {
             type: DataTypes.STRING,
             allowNull: true,
-            unique: true,
             validate: {
                 len: [1, 150]
-            },
-            temperature: {
-                type: DataTypes.STRING,
-                allowNull: true,
-                unique: true,
-                validate: {
-                    len: [1, 150]
-                }
             }
-
-        }
+        },
+        temperature: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            validate: {
+                len: [1, 150]
+            }
+        },
     });
-    return Lattes;
+return Lattes;
 };
