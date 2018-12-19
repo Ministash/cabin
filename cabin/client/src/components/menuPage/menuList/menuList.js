@@ -1,6 +1,7 @@
 import React from "react";
 import "./menuList.css";
 import API from "../../../utils/API";
+import MenuDrinks from "../menuDrinks/index"
 
 
 class MenuList extends React.Component {
@@ -63,28 +64,21 @@ class MenuList extends React.Component {
                     </div>
 
                     <div className="menu-list-drink-items-wrapper">
+                        {this.state.lattes.map(function(item, i){
+                            return (
+                                <MenuDrinks
+                                key={i}
+                                name = {item.name}
+                                flavor = {item.flavor}
+                                price1 = {item.price1}
+                                price2 = {item.price2}
+                                price3 = {item.price3}
+                                temperature = {item.temperature}
+                                />
+                                
+                            );
 
-
-                        <div className="menu-list-drink-item">
-                            <div className="menu-list-drink-item-name">Matt and Tracy</div>
-
-                            <div className="menu-list-drink-item-price-wrapper">
-                                <div className="menu-list-drink-item-price">S: $3.90</div>
-                                <div className="menu-list-drink-item-price">M: $3.80</div>
-                                <div className="menu-list-drink-item-price">L: $4.15</div>
-                            </div>
-
-                            <div className="menu-list-drink-item-price-temperature-wrapper">
-                                <div className="menu-list-drink-item-price-temperature-served">Served:</div>
-                                <div className="menu-list-drink-item-price-temperature">Hot Or Cold</div>
-
-                            </div>
-                        </div>
-
-
-
-
-
+                        })}
 
                     </div>
 
