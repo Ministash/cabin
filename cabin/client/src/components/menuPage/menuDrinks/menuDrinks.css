@@ -16,12 +16,12 @@
 .menu-list-drink-item-price-wrapper{
     float: left;
     width: 135px;
-    height: 218px;
+    height: 183px;
     border-right: 5px #d8c37a solid;
 }
 
 .menu-list-drink-item-price{
-    line-height: 90px;
+    line-height: 60px;
     text-align: center;
     font-size: 25px;
     width: 100%;
@@ -29,22 +29,26 @@
 }
 
 .menu-list-drink-item-price-temperature-wrapper{
-    margin-left: 133px;
-    width: 135px;
-    height: 218px;
-
+    margin-left: 135px;
+    width: 133px;
+    height: 50px;
 }
 
 .menu-list-drink-item-price-temperature-served{
     font-size: 25px;
     text-align: center;
-    margin-top: 50px;
+    line-height: 50px;
     width: 100%;
-    height: 50px;
+    margin-top: 40px;
 }
 
 .menu-list-drink-item-price-temperature{
     font-size: 20px;
     text-align: center;
-    margin-top: 20px;
+}
+
+.menu-list-drink-item-flavor{
+    font-size: 20px;
+    border-bottom: 5px solid #d8c37a;
+    text-align: center;
 }

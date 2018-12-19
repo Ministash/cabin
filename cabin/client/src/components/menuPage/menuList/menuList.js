@@ -19,7 +19,6 @@ class MenuList extends React.Component {
 
     grabDrinkInfo = () => {
         API.getLattes().then((res) => {
-            // console.log(res.data.lattes);
             let tempArray = [];
             res.data.lattes.forEach(element => {
                 let newItem = {
@@ -35,13 +34,12 @@ class MenuList extends React.Component {
 
             });
             this.setState({ lattes: tempArray });
-        })
+        });
     }
 
 
 
     render() {
-        console.log(this.state.lattes);
         return (
             <div className="menu-list-drink-wrapper">
                 <div></div>

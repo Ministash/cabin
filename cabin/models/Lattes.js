@@ -8,21 +8,21 @@ module.exports = function (sequelize, DataTypes) {
             }
         },
         price1: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.FLOAT,
             allowNull: true,
             validate: {
                 len: [1, 100]
             }
         },
         price2: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.FLOAT,
             allowNull: true,
             validate: {
                 len: [1, 100]
             }
         },
         price3: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.FLOAT,
             allowNull: true,
             validate: {
                 len: [1, 100]
