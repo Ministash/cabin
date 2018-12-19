@@ -8,17 +8,18 @@ class MenuList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            lattes: []
+            drinks: []
         };
     }
 
 
-    componentWillMount() {
-        this.grabDrinkInfo();
-    }
+    // componentWillMount() {
+    //     this.grabDrinkInfo();
+    // }
 
-    grabDrinkInfo = () => {
-        API.getLattes().then((res) => {
+    grabDrinkInfo = (key) => {
+        API.getLattes(key).then((res) => {
+
             let tempArray = [];
             res.data.lattes.forEach(element => {
                 let newItem = {
@@ -33,7 +34,7 @@ class MenuList extends React.Component {
                 tempArray.push(newItem);
 
             });
-            this.setState({ lattes: tempArray });
+            this.setState({ drinks: tempArray });
         });
     }
 
@@ -52,7 +53,7 @@ class MenuList extends React.Component {
                         </div>
                         <div className="menu-list-drink-nav-list-wrapper">
                             <div></div>
-                            <div className="menu-list-drink-nav-list-item x">Flavoured Lattes</div>
+                            <div onClick={()=> this.grabDrinkInfo(1)} className="menu-list-drink-nav-list-item x">Flavoured Lattes</div>
                             <div className="menu-list-drink-nav-list-item x">Coffee</div>
                             <div className="menu-list-drink-nav-list-item x">Teas</div>
                             <div className="menu-list-drink-nav-list-item x">Blended</div>
@@ -62,7 +63,7 @@ class MenuList extends React.Component {
                     </div>
 
                     <div className="menu-list-drink-items-wrapper">
-                        {this.state.lattes.map(function(item, i){
+                        {this.state.drinks.map(function(item, i){
                             return (
                                 <MenuDrinks
                                 key={i}

@@ -5,6 +5,7 @@
     margin: 20px 20px 20px 20px;
     border: 1px solid #d8c37a;
     color: #441c10;
+    transition: 0.3s ease all;
 }
 
 .menu-list-drink-item-name{
