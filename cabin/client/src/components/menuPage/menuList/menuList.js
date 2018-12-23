@@ -1,44 +1,22 @@
 import React from "react";
 import "./menuList.css";
-import API from "../../../utils/API";
-import MenuDrinks from "../menuDrinks/index"
+import { MenuLattes } from "../menuDrinks/index";
+import { Link, Route } from "react-router-dom";
 
 
 class MenuList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            drinks: []
+            drinks: [],
+            newProps: props,
+            key: 0
         };
     }
 
-
-    // componentWillMount() {
-    //     this.grabDrinkInfo();
-    // }
-
-    grabDrinkInfo = (key) => {
-        API.getLattes(key).then((res) => {
-
-            let tempArray = [];
-            res.data.lattes.forEach(element => {
-                let newItem = {
-                    name: element.name,
-                    flavor: element.flavor,
-                    price1: element.price1,
-                    price2: element.price2,
-                    price3: element.price3,
-                    temperature: element.temperature
-                }
-
-                tempArray.push(newItem);
-
-            });
-            this.setState({ drinks: tempArray });
-        });
+    changeTheKey(key){
+        this.setState({key: key});
     }
-
-
 
     render() {
         return (
@@ -53,32 +31,17 @@ class MenuList extends React.Component {
                         </div>
                         <div className="menu-list-drink-nav-list-wrapper">
                             <div></div>
-                            <div onClick={()=> this.grabDrinkInfo(1)} className="menu-list-drink-nav-list-item x">Flavoured Lattes</div>
-                            <div className="menu-list-drink-nav-list-item x">Coffee</div>
-                            <div className="menu-list-drink-nav-list-item x">Teas</div>
-                            <div className="menu-list-drink-nav-list-item x">Blended</div>
-                            <div className="menu-list-drink-nav-list-item x">Smoothies</div>
-                            <div className="menu-list-drink-nav-list-item x">More</div>
+                            <Link to="/menu/flavoured-lattes" onClick={()=> this.changeTheKey(1)} className="menu-list-drink-nav-list-item x">Flavoured Lattes</Link>
+                            <Link to="/menu/coffee" onClick={()=> this.grabDrinkInfo(2)} className="menu-list-drink-nav-list-item x">Coffee</Link>
+                            <Link to="/menu/teas" onClick={()=> this.grabDrinkInfo(3)} className="menu-list-drink-nav-list-item x">Teas</Link>
+                            <Link to="/menu/blended" onClick={()=> this.grabDrinkInfo(4)} className="menu-list-drink-nav-list-item x">Blended</Link>
+                            <Link to="/menu/smoothies" onClick={()=> this.grabDrinkInfo(5)} className="menu-list-drink-nav-list-item x">Smoothies</Link>
+                            <Link to="/menu/more" onClick={()=> this.grabDrinkInfo(6)} className="menu-list-drink-nav-list-item x">More</Link>
                         </div>
                     </div>
 
                     <div className="menu-list-drink-items-wrapper">
-                        {this.state.drinks.map(function(item, i){
-                            return (
-                                <MenuDrinks
-                                key={i}
-                                name = {item.name}
-                                flavor = {item.flavor}
-                                price1 = {item.price1}
-                                price2 = {item.price2}
-                                price3 = {item.price3}
-                                temperature = {item.temperature}
-                                />
-                                
-                            );
-
-                        })}
-
+                    <Route exact path={`${this.state.newProps.props.match.url}/flavoured-lattes`} render={(key) => <MenuLattes key={this.state.key}/>} />
                     </div>
 
 

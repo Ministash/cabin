@@ -1,10 +1,10 @@
 import axios from "axios";
 
 export default {
-  getLattes: function (id) {
+  getDrinks: function (id) {
     return axios.get("/api/lattes/" + id);
   },
-  pushLattes: function (){
+  pushDrinks: function (){
     return axios.post("/api/lattes/");
   }
 

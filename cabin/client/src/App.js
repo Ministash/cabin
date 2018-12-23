@@ -15,8 +15,7 @@ class App extends Component {
       <Router>
         <div>
           <Route exact path="/" render={() => <MainPage />} />
-          <Route exact path="/menu" render={() => <MenuPage />} />
-
+          <Route path="/menu" render={(props) => <MenuPage {...props} />} />
         </div>
       </Router>
 
