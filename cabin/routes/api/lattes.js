@@ -4,12 +4,12 @@ const db = require("../../models");
 router.route("/:id")
     .post(function (req, res) {
         let newLatte = {
-            name: "Lodge",
-            price1: 4.23,
-            price2: 4.88,
-            price3: 5.23,
-            flavor: "Mocha and Peppermint",
-            temperature: 3
+            name: "Honey Latte",
+            price1: "4.20",
+            price2: "4.80",
+            price3: "5.20",
+            flavor: "Honey + Milk",
+            div: 1
         }
 
         db.Lattes.create({
@@ -18,7 +18,7 @@ router.route("/:id")
             price2: newLatte.price2,
             price3: newLatte.price3,
             flavor: newLatte.flavor,
-            temperature: newLatte.temperature
+            div: newLatte.div
         }).then(function (data) {
             res.json(data);
         })

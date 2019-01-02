@@ -10,9 +10,9 @@ class menuLattes extends React.Component {
         };
     }
 
-    componentWillMount(){
-        let key = 1;
+    componentWillMount() {
         this.grabDrinkInfo(1);
+
     }
 
 
@@ -20,6 +20,7 @@ class menuLattes extends React.Component {
         API.getDrinks(key).then((res) => {
 
             let tempArray = [];
+
             res.data.lattes.forEach(element => {
                 let newItem = {
                     name: element.name,
@@ -27,53 +28,87 @@ class menuLattes extends React.Component {
                     price1: element.price1,
                     price2: element.price2,
                     price3: element.price3,
-                    temperature: element.temperature
+                    div: element.div
                 }
 
                 tempArray.push(newItem);
 
             });
+
             this.setState({ drinks: tempArray });
         });
     }
 
 
-
     render() {
-        console.log(this.state.drinks);
-        let isItHotOrCold = "";
-        if (this.state.drinks.temperature === 1) {
-            isItHotOrCold = "Hot";
-        } else if (this.state.drinks.temperature === 2) {
-            isItHotOrCold = "Cold";
-        } else if (this.state.drinks.temperature === 3) {
-            isItHotOrCold = "Hot Or Cold"
-        } else if (this.state.drinks.temperature === 4) {
-            isItHotOrCold = "Blended"
-        } else if (this.state.drinks.temperature) {
-            isItHotOrCold = "Hot, Cold Or Blended"
-        }
 
         return (
-            <div className="menu-list-drink-item" key={this.state.drinks.i}>
-                <div className="menu-list-drink-item-name">{this.state.drinks.name}</div>
-                <div className="menu-list-drink-item-flavor">Flavor: {this.state.drinks.flavor}</div>
-
-                <div className="menu-list-drink-item-price-wrapper">
-                    <div className="menu-list-drink-item-price">S: ${this.state.drinks.price1}</div>
-                    <div className="menu-list-drink-item-price">M: ${this.state.drinks.price2}</div>
-                    <div className="menu-list-drink-item-price">L: ${this.state.drinks.price3}</div>
-                </div>
-
-                <div className="menu-list-drink-item-price-temperature-wrapper">
-                    <div className="menu-list-drink-item-price-temperature-served">Served:
-                <div className="menu-list-drink-item-price-temperature">{isItHotOrCold}</div>
+            <div>
+                <div className="menu-list-drink-information-box">
+                    <div className="menu-list-drink-item-name">How They Are Made</div>
+                    <div className="menu-list-drink-item-information-text-wrapper">
+                        Specific to your preference, each flavoured latte is served either hot or iced.
+                        Small and medium lattes are created with two shots of espresso, while our large lattes
+                        are served with three.
                     </div>
-
                 </div>
+
+
+                <div>
+                    {this.state.drinks.map(function (item, i) {
+                        let whichDivIsIt2 = item.div;
+
+
+                        return <div className="menu-list-drink-item" key={i}>
+                            <div className="menu-list-drink-item-name">{item.name}</div>
+                            <div className="menu-list-drink-item-flavor">Flavor: {item.flavor}</div>
+
+                            {whichDivIsIt2 === 1 ?
+
+                                (<div className="menu-list-drink-item-informational-wrapper">
+                                    <div className="menu-list-drink-item-price-wrapper-1">
+                                        <div className="menu-list-drink-item-price">S: ${item.price1}</div>
+                                        <div className="menu-list-drink-item-price">M: ${item.price2}</div>
+                                        <div className="menu-list-drink-item-price">L: ${item.price3}</div>
+                                    </div>
+
+                                </div>)
+                                :
+                                (<div className="menu-list-drink-item-informational-wrapper">
+                                    <div className="menu-list-drink-item-price-wrapper">
+                                        <div className="menu-list-drink-item-price">S: ${item.price1}</div>
+                                        <div className="menu-list-drink-item-price">M: ${item.price2}</div>
+                                        <div className="menu-list-drink-item-price">L: ${item.price3}</div>
+                                    </div>
+
+                                    <div className="menu-list-drink-item-price-temperature-wrapper">
+
+                                        <div className="menu-list-drink-item-price-temperature-served">Served:
+
+                                <div className="menu-list-drink-item-price-temperature">Hot or Cold</div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>)}
+
+                        </div>
+
+                    })}
+                </div>
+
+
+
+
+
             </div>
+
+
+
         )
     }
+
 };
 
 export default menuLattes;

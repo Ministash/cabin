@@ -4,8 +4,8 @@ export default {
   getDrinks: function (id) {
     return axios.get("/api/lattes/" + id);
   },
-  pushDrinks: function (){
-    return axios.post("/api/lattes/");
+  pushDrinks: function (id){
+    return axios.post("/api/lattes/" + id);
   }
 
 };

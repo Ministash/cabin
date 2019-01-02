@@ -10,12 +10,12 @@ class MenuList extends React.Component {
         this.state = {
             drinks: [],
             newProps: props,
-            key: 0
+            keyId: 0
         };
     }
 
-    changeTheKey(key){
-        this.setState({key: key});
+    changeTheKey(passedKey){
+        this.setState({keyId: passedKey});
     }
 
     render() {
@@ -31,17 +31,17 @@ class MenuList extends React.Component {
                         </div>
                         <div className="menu-list-drink-nav-list-wrapper">
                             <div></div>
-                            <Link to="/menu/flavoured-lattes" onClick={()=> this.changeTheKey(1)} className="menu-list-drink-nav-list-item x">Flavoured Lattes</Link>
-                            <Link to="/menu/coffee" onClick={()=> this.grabDrinkInfo(2)} className="menu-list-drink-nav-list-item x">Coffee</Link>
-                            <Link to="/menu/teas" onClick={()=> this.grabDrinkInfo(3)} className="menu-list-drink-nav-list-item x">Teas</Link>
-                            <Link to="/menu/blended" onClick={()=> this.grabDrinkInfo(4)} className="menu-list-drink-nav-list-item x">Blended</Link>
-                            <Link to="/menu/smoothies" onClick={()=> this.grabDrinkInfo(5)} className="menu-list-drink-nav-list-item x">Smoothies</Link>
-                            <Link to="/menu/more" onClick={()=> this.grabDrinkInfo(6)} className="menu-list-drink-nav-list-item x">More</Link>
+                            <Link to="/menu/flavoured-lattes" className="menu-list-drink-nav-list-item x">Flavoured Lattes</Link>
+                            <Link to="/menu/coffee" className="menu-list-drink-nav-list-item x">Coffee</Link>
+                            <Link to="/menu/teas" className="menu-list-drink-nav-list-item x">Teas</Link>
+                            <Link to="/menu/blended" className="menu-list-drink-nav-list-item x">Blended</Link>
+                            <Link to="/menu/smoothies" className="menu-list-drink-nav-list-item x">Smoothies</Link>
+                            <Link to="/menu/more" className="menu-list-drink-nav-list-item x">More</Link>
                         </div>
                     </div>
 
                     <div className="menu-list-drink-items-wrapper">
-                    <Route exact path={`${this.state.newProps.props.match.url}/flavoured-lattes`} render={(key) => <MenuLattes key={this.state.key}/>} />
+                    <Route exact path={`${this.state.newProps.props.match.url}/flavoured-lattes`} render={(props) => <MenuLattes/>} />
                     </div>
 
 

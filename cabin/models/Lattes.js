@@ -8,21 +8,21 @@ module.exports = function (sequelize, DataTypes) {
             }
         },
         price1: {
-            type: DataTypes.FLOAT,
+            type: DataTypes.STRING,
             allowNull: true,
             validate: {
                 len: [1, 100]
             }
         },
         price2: {
-            type: DataTypes.FLOAT,
+            type: DataTypes.STRING,
             allowNull: true,
             validate: {
                 len: [1, 100]
             }
         },
         price3: {
-            type: DataTypes.FLOAT,
+            type:DataTypes.STRING,
             allowNull: true,
             validate: {
                 len: [1, 100]
@@ -32,10 +32,10 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: true,
             validate: {
-                len: [1, 150]
+                len: [1, 100]
             }
         },
-        temperature: {
+        div: {
             type: DataTypes.INTEGER,
             allowNull: true,
             validate: {
