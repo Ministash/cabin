@@ -17,6 +17,7 @@ class menuLattes extends React.Component {
 
 
     grabDrinkInfo = (key) => {
+        // API.pushDrinks();
         API.getDrinks(key).then((res) => {
 
             let tempArray = [];
@@ -54,12 +55,12 @@ class menuLattes extends React.Component {
                 </div>
 
 
-                <div>
+                <div className="test">
                     {this.state.drinks.map(function (item, i) {
                         let whichDivIsIt2 = item.div;
 
 
-                        return <div className="menu-list-drink-item" key={i}>
+                        return <div className="menu-list-drink-items" key={i}>
                             <div className="menu-list-drink-item-name">{item.name}</div>
                             <div className="menu-list-drink-item-flavor">Flavor: {item.flavor}</div>
 

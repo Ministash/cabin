@@ -54,3 +54,24 @@
     overflow: auto;
 }
 
+
+@media screen and (max-width: 555px){
+    .menu-list-drink-wrapper{
+        grid-template-columns: 0% 100% 0%;
+    }
+}
+
+@media screen and (max-width: 950px){
+    .menu-list-drink-nav-list-wrapper{
+        border-bottom: solid 3px #d8c37a;
+        height: 50px;
+        width: 100%;
+        display: block;
+        
+    }
+}
+
+
+
+
+

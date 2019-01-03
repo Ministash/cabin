@@ -1,8 +1,9 @@
-.menu-list-drink-item{
+.menu-list-drink-items{
     float: left;
     width: 270px;
-    height: 270px;
-    margin: 20px 20px 20px 20px;
+    min-height: 300px;
+    margin-top: 20px;
+    margin-right: 20px;
     border: 1px solid #d8c37a;
     color: #441c10;
     transition: 0.3s ease all;
@@ -75,5 +76,26 @@
     margin: 0 auto;
     margin-top: 10px;
     border: 1px solid #d8c37a;
-    width: 80%;
+    width: 90%;
+}
+
+.test{
+    margin: 0 auto;
+    width: 870px;
+}
+
+
+@media screen and (max-width: 1285px) {
+    .test{
+        margin: 0 auto;
+        width: 580px;
+    }
+}
+
+
+@media screen and (max-width: 955px) {
+    .test{
+        margin: 0 auto;
+        width: 275px;
+    }
 }

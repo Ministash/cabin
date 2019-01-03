@@ -10,12 +10,8 @@ class MenuList extends React.Component {
         this.state = {
             drinks: [],
             newProps: props,
-            keyId: 0
+            isDesktop: false
         };
-    }
-
-    changeTheKey(passedKey){
-        this.setState({keyId: passedKey});
     }
 
     render() {

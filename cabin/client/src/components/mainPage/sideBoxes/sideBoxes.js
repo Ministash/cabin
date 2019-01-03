@@ -13,7 +13,6 @@ class sideBoxes extends React.Component {
         super(props);
         this.state = {
             isDesktop: false,
-            textClassRight: "body-sideboxes-overlay-right-text"
         };
 
         this.updatePredicate = this.updatePredicate.bind(this);
