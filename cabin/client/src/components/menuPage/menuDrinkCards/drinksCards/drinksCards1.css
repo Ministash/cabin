@@ -1,0 +1,40 @@
+.menu-list-drink-items{
+    float: left;
+    width: 270px;
+    min-height: 300px;
+    margin-top: 20px;
+    margin-right: 20px;
+    border: 1px solid #d8c37a;
+    color: #441c10;
+}
+
+.menu-list-drink-item-name{
+    font-size: 30px;
+    border-bottom: 5px solid #d8c37a;
+    text-align: center;
+}
+
+.menu-list-drink-item-flavor{
+    font-size: 20px;
+    border-bottom: 5px solid #d8c37a;
+    text-align: center;
+}
+
+.menu-list-drink-item-informational-wrapper{
+    position: relative;
+}
+
+.menu-list-drink-item-price-wrapper-1{
+    position: absolute;
+    left: 65px;
+    width: 135px;
+    height: 183px;
+}
+
+.menu-list-drink-item-price{
+    line-height: 60px;
+    text-align: center;
+    font-size: 25px;
+    width: 100%;
+    height: 60px;
+}

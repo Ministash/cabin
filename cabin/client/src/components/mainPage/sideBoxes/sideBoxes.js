@@ -25,7 +25,7 @@ class sideBoxes extends React.Component {
 
     componentWillUnmount() {
         window.removeEventListener("resize", this.updatePredicate);
-        this.setState({ isDesktop: false });
+        this.updatePredicate();
     }
 
     updatePredicate() {

@@ -1,7 +1,7 @@
 import React from "react";
 import "./menuPage.css";
 import Navbar from "../../components/navBar/index";
-import MenuList from "../../components/menuPage/menuList/index";
+import DrinkWrapper from "../menuPage/drinkWrapper/index";
 
 
 class Menu extends React.Component {
@@ -17,7 +17,7 @@ class Menu extends React.Component {
         return (
             <div>
                 <Navbar></Navbar>
-                <MenuList props={this.state.passingProps}/>
+                <DrinkWrapper props={this.state.passingProps}/>
             </div>
         )
     }

@@ -28,7 +28,7 @@ module.exports = function (sequelize, DataTypes) {
                 len: [1, 100]
             }
         },
-        madeW: {
+        flavor: {
             type: DataTypes.STRING,
             allowNull: true,
             validate: {

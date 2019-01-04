@@ -5,7 +5,7 @@ import './drinksCards1.css';
 const drinksCards1 = props => (
     <div className="menu-list-drink-items">
         <div className="menu-list-drink-item-name">{props.item.name}</div>
-        <div className="menu-list-drink-item-flavor">Flavor: {props.item.flavor}</div>
+        <div className="menu-list-drink-item-flavor">Flavor: {props.item.flavor ? props.item.madeW : props.item.flavor}</div>
         <div className="menu-list-drink-item-informational-wrapper">
             <div className="menu-list-drink-item-price-wrapper-1">
                 <div className="menu-list-drink-item-price">S: ${props.item.price1}</div>

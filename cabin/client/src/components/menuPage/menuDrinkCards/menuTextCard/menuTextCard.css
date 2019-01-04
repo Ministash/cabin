@@ -1,0 +1,14 @@
+.menu-list-drink-information-box{
+    margin: 0 auto;
+    margin-top: 10px;
+    border: 1px solid #d8c37a;
+    width: 90%;
+}
+
+.menu-list-drink-item-information-text-wrapper-coffee{
+    margin: 0 auto;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 20px;
+    width: 95%;
+}
