@@ -3,19 +3,17 @@ import "./menuCoffee.css";
 import { DrinksCards1, DrinksCards2, DrinksCards3 } from "../menuDrinkCards/drinksCards";
 import MenuTextCard from '../menuDrinkCards/menuTextCard';
 
-class menuCoffee extends React.Component {
+class menuSmoothies extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             drinks: props.drinks,
-            information: "From the cities of Mexico to the beautiful beaches of Costa Rica," +
-                "we brew with a wide variety of beans for the coffee purist."
-                + "For the more progressive coffee drinkers we offer every cup with their choice" +
-                "of cream or vast acomprehensive list of flavoring."
+            information: "Smoothies"
         };
     }
 
     render() {
+        console.log(this.state.smoothies);
         if (!this.state.drinks) {
             return <h1>Loading information...</h1>
         }
@@ -24,7 +22,7 @@ class menuCoffee extends React.Component {
                 <MenuTextCard information={this.state.information} />
 
                 <div className="test">
-                    {this.state.drinks.coffee.map(function (item, i) {
+                    {this.state.drinks.smoothies.map(function (item, i) {
 
                         let whichDivIsIt2 = item.div;
 
@@ -46,5 +44,5 @@ class menuCoffee extends React.Component {
 
 };
 
-export default menuCoffee;
+export default menuSmoothies;
 

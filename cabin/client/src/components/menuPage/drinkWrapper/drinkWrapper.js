@@ -1,6 +1,6 @@
 import React from "react";
 import "./drinkWrapper.css";
-import { MenuLattes, MenuCoffee } from "../menuTabs/index";
+import { MenuLattes, MenuCoffee, MenuSmoothies } from "../menuTabs/index";
 import { Link, Route } from "react-router-dom";
 import API from "../../../utils/API";
 
@@ -14,23 +14,23 @@ class drinkWrapper extends React.Component {
             showMenu: false,
         };
 
-        this.updatePredicate = this.updatePredicate.bind(this);
+        this.updateWindowListener = this.updateWindowListener.bind(this);
         this.showMenu = this.showMenu.bind(this);
         this.closeMenu = this.closeMenu.bind(this);
     }
 
     componentDidMount() {
-        this.updatePredicate();
-        window.addEventListener("resize", this.updatePredicate);
         this.grabDrinkInfo(1);
+        this.updateWindowListener();
+        window.addEventListener("resize", this.updateWindowListener);
     }
 
     componentWillUnount() {
-        window.removeEventListener("resize", this.updatePredicate);
-        this.setState({ isDesktop: false });
+        window.removeEventListener("resize", this.updateWindowListener);
+        this.updateWindowListener();
     }
 
-    updatePredicate() {
+    updateWindowListener() {
         this.setState({ isDesktop: window.innerWidth > 950 });
     }
 
@@ -50,7 +50,6 @@ class drinkWrapper extends React.Component {
 
     grabDrinkInfo = (key) => {
         this.setState({ drinks: null });
-        console.log(key);
         API.getDrinks(key)
             .then(res => this.setState({ drinks: res.data }))
             .catch(err => console.log(err));
@@ -112,6 +111,7 @@ class drinkWrapper extends React.Component {
                         (<div className="menu-list-drink-items-wrapper">
                             <Route exact path={`${this.state.newProps.props.match.url}/flavoured-lattes`} render={() => <MenuLattes drinks={this.state.drinks} />} />
                             <Route exact path={`${this.state.newProps.props.match.url}/coffee`} render={() => <MenuCoffee drinks={this.state.drinks} />} />
+                            <Route exact path={`${this.state.newProps.props.match.url}/smoothies`} render={() => < MenuSmoothies drinks={this.state.drinks} />} />
                         </div>)
 
                         : (null)}

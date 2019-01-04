@@ -20,26 +20,13 @@ class menuLattes extends React.Component {
         if (!this.state.drinks) {
             return <h1>Loading information...</h1>
         }
-
         return (
             <div>
                 <MenuTextCard information={this.state.information} />
 
                 <div className="test">
                     {this.state.drinks.lattes.map(function (item, i) {
-
-                        let whichDivIsIt2 = item.div;
-
-                        return <div key={i}>
-
-                            {whichDivIsIt2 === 1 ?
-
-                                (<DrinksCards1 item={item} />)
-                                :
-                                (<DrinksCards2 item={item} />)}
-
-                        </div>
-
+                        return  <DrinksCards1 item={item} key={i}/>
                     })}
                 </div>
             </div>

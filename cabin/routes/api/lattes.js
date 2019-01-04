@@ -28,6 +28,21 @@ router.route("/:id")
             .then(function (data) {
                 res.send({ coffee: data });
             });
+        }else if(req.params.id === "3"){
+            db.Smoothies.findAll({})
+            .then(function (data) {
+                res.send({ coffee: data });
+            });
+        }else if(req.params.id === "4"){
+            db.Smoothies.findAll({})
+            .then(function (data) {
+                res.send({ coffee: data });
+            });
+        }else if(req.params.id === "5"){
+            db.Smoothies.findAll({})
+            .then(function (data) {
+                res.send({ coffee: data });
+            });
         }
     });
 
