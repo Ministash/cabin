@@ -1,6 +1,6 @@
 import React from "react";
 import "./menuList.css";
-import { MenuLattes } from "../menuDrinks/index";
+import { MenuLattes, MenuCoffee } from "../menuDrinks/index";
 import { Link, Route } from "react-router-dom";
 
 
@@ -24,7 +24,7 @@ class MenuList extends React.Component {
         window.addEventListener("resize", this.updatePredicate);
     }
 
-    componentWillMount() {
+    componentWillUnount() {
         window.removeEventListener("resize", this.updatePredicate);
         this.setState({ isDesktop: false });
     }
@@ -104,6 +104,7 @@ class MenuList extends React.Component {
 
                     <div className="menu-list-drink-items-wrapper">
                         <Route exact path={`${this.state.newProps.props.match.url}/flavoured-lattes`} render={(props) => <MenuLattes />} />
+                        <Route exact path={`${this.state.newProps.props.match.url}/coffee`} render={(props) => <MenuCoffee drinks={this.state.drinks} />} />
                     </div>
 
 
