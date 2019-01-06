@@ -1,5 +1,4 @@
 import React from "react";
-import "./menuCoffee.css";
 import { DrinksCards1, DrinksCards2, DrinksCards3 } from "../menuDrinkCards/drinksCards";
 import MenuTextCard from '../menuDrinkCards/menuTextCard';
 
@@ -13,7 +12,6 @@ class menuSmoothies extends React.Component {
     }
 
     render() {
-        console.log(this.state.smoothies);
         if (!this.state.drinks) {
             return <h1>Loading information...</h1>
         }

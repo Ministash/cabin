@@ -1,8 +1,10 @@
 const router = require("express").Router();
-const lattes = require("./lattes");
+const drinks = require("./drinks");
 
-
-router.use("/lattes", lattes);
+//The first part of this function is specifying the what the api route will use to load the variable.
+//So "/drinks" is loading drinks the variable. If you change the first part ("/drinks") you need to 
+//change the other places that the route is being used.
+router.use("/drinks", drinks);
 
 
 module.exports = router;

@@ -2,6 +2,7 @@ import React from "react";
 import "./boxes.css";
 import photo1 from "./boxicon2.jpg"
 import photo2 from './contact.jpg';
+import { Link} from "react-router-dom";
 
 
 
@@ -40,14 +41,14 @@ class Boxes extends React.Component {
 
                 <div className="boxes-space-two"></div>
 
-                <div className="body-one-boxes">
+                <Link to="/menu/flavoured-lattes" className="body-one-boxes">
                     <div></div>
                     <div className="first-box">
                     <div className="body-boxes-overlay-one">
                             <div className="box-one-text x">Our Menu</div>
                         </div>
                     </div>
-                </div>
+                </Link>
 
             </div>
         )
