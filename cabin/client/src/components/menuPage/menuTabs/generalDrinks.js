@@ -12,10 +12,10 @@ class generalDrinks extends React.Component {
         };
     }
 
-    componentDidMount(){
-        console.log(this.state.drinks);
-        console.log(this.state.newTextInformation);
-    }
+    // componentDidMount(){
+    //     console.log(this.state.drinks);
+    //     console.log(this.state.newTextInformation);
+    // }
 
 
     render() {

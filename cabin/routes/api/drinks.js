@@ -30,8 +30,13 @@ router.route("/:id")
             };
                 break;
             case "3": {
-                let Teas = db.Teas;
-                autoR(Coffee);
+                let Tea = db.Tea;
+                autoR(Tea);
+            };
+                break;
+            case "4": {
+                let Blended = db.Blended;
+                autoR(Blended);
             };
                 break;
             default: autoR(Lattes);

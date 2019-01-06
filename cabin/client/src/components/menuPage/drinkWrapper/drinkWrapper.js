@@ -21,9 +21,7 @@ class drinkWrapper extends React.Component {
     }
 
     componentDidMount() {
-        /* GrabDrinkInfo needs to told what default information is being pulled up.
-        The database loads different drink info depending on which number is passed */
-        this.grabDrinkInfo(1);
+        this.whereAmI();
 
         /* These two functions fire when the page is loaded ensuring that responsive things happen with my
         little drink navbar */
@@ -38,6 +36,49 @@ class drinkWrapper extends React.Component {
 
     updateWindowListener() {
         this.setState({ isDesktop: window.innerWidth > 950 });
+    }
+
+    whereAmI() {
+        //This function ensures that even if the page is reloaded that my information will stay consistant
+        switch (this.state.newProps.props.location.pathname) {
+
+            case '/menu/flavoured-lattes': {
+                let foundKey = "1"
+                this.grabDrinkInfo(foundKey);
+            };
+                break;
+            case "/menu/coffee": {
+                let foundKey = "2"
+                this.grabDrinkInfo(foundKey);
+            };
+                break;
+            case "/menu/teas": {
+                let foundKey = "3"
+                this.grabDrinkInfo(foundKey);
+            };
+                break;
+            case "/menu/blended": {
+                let foundKey = "4"
+                this.grabDrinkInfo(foundKey);
+            };
+                break;
+            case "/menu/smoothies": {
+                let foundKey = "5"
+                this.grabDrinkInfo(foundKey);
+            };
+                break;
+            case "/menu/more": {
+                let foundKey = "6"
+                this.grabDrinkInfo(foundKey);
+            };
+                break;
+
+            default: {
+                let foundKey = "1"
+                this.grabDrinkInfo(foundKey);
+            };
+                break;
+        }
     }
 
     showMenu(event) {
@@ -55,15 +96,14 @@ class drinkWrapper extends React.Component {
     }
 
     grabDrinkInfo = (key) => {
-        console.log(key);
         this.setState({ drinks: null });
         this.setState({ menuText: null });
         //Calling on my Axios API call. This passes in the key and then returns what it gets on my promise
-            API.getDrinks(key)
-                .then(res => {
-                    this.setState({ drinks: res.data.generalDrinks.drinks });
-                    this.setState({ menuText: res.data.generalDrinks.text.text });
-                }).catch(err => console.log(err))
+        API.getDrinks(key)
+            .then(res => {
+                this.setState({ drinks: res.data.generalDrinks.drinks });
+                this.setState({ menuText: res.data.generalDrinks.text.text });
+            }).catch(err => console.log(err))
     }
 
     render() {
@@ -118,10 +158,12 @@ class drinkWrapper extends React.Component {
 
                     </div>
 
-                    {this.state.drinks && this.state.menuText?
+                    {this.state.drinks && this.state.menuText ?
                         (<div className="menu-list-drink-items-wrapper">
-                            <Route exact path={`${this.state.newProps.props.match.url}/flavoured-lattes`} render={() => <GeneralDrinks drinks={this.state.drinks} menuText={this.state.menuText}/>} />
+                            <Route exact path={`${this.state.newProps.props.match.url}/flavoured-lattes`} render={() => <GeneralDrinks drinks={this.state.drinks} menuText={this.state.menuText} />} />
                             <Route exact path={`${this.state.newProps.props.match.url}/coffee`} render={() => <GeneralDrinks drinks={this.state.drinks} menuText={this.state.menuText} />} />
+                            <Route exact path={`${this.state.newProps.props.match.url}/teas`} render={() => <GeneralDrinks drinks={this.state.drinks} menuText={this.state.menuText} />} />
+                            <Route exact path={`${this.state.newProps.props.match.url}/blended`} render={() => <GeneralDrinks drinks={this.state.drinks} menuText={this.state.menuText} />} />
                         </div>)
 
                         : (null)}
