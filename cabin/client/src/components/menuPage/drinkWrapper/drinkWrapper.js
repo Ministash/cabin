@@ -1,6 +1,6 @@
 import React from "react";
 import "./drinkWrapper.css";
-import { GeneralDrinks } from "../menuTabs/index";
+import { GeneralDrinks, MenuSmoothies } from "../menuTabs/index";
 import { Link, Route } from "react-router-dom";
 import API from "../../../utils/API";
 
@@ -42,7 +42,7 @@ class drinkWrapper extends React.Component {
         //This function ensures that even if the page is reloaded that my information will stay consistant
         switch (this.state.newProps.props.location.pathname) {
 
-            case '/menu/flavoured-lattes': {
+            case '/menu/flavored-lattes': {
                 let foundKey = "1"
                 this.grabDrinkInfo(foundKey);
             };
@@ -124,7 +124,7 @@ class drinkWrapper extends React.Component {
                         {/* These are my links before they are converted into a drop down menu */}
                         {isDesktop ? (<div className="menu-list-drink-nav-list-wrapper">
                             <div></div>
-                            <Link onClick={() => this.grabDrinkInfo("1")} to="/menu/flavoured-lattes" className="menu-list-drink-nav-list-item x">Flavoured Lattes</Link>
+                            <Link onClick={() => this.grabDrinkInfo("1")} to="/menu/flavored-lattes" className="menu-list-drink-nav-list-item x">Flavored Lattes</Link>
                             <Link onClick={() => this.grabDrinkInfo("2")} to="/menu/coffee" className="menu-list-drink-nav-list-item x">Coffee</Link>
                             <Link onClick={() => this.grabDrinkInfo("3")} to="/menu/teas" className="menu-list-drink-nav-list-item x">Teas</Link>
                             <Link onClick={() => this.grabDrinkInfo("4")} to="/menu/blended" className="menu-list-drink-nav-list-item x">Blended</Link>
@@ -139,7 +139,7 @@ class drinkWrapper extends React.Component {
                                     the boolean showMenu which is set to true when the window size reaches a certain width. */}
                                     {this.state.showMenu ?
                                         (<div className="menu-list-drink-nav-list-wrapper-dropdown">
-                                            <Link onClick={() => this.grabDrinkInfo("1")} to="/menu/flavoured-lattes" className="menu-list-drink-nav-list-dropdown-item line-height-dropdown-one x">Flavoured Lattes</Link>
+                                            <Link onClick={() => this.grabDrinkInfo("1")} to="/menu/flavored-lattes" className="menu-list-drink-nav-list-dropdown-item line-height-dropdown-one x">Flavored Lattes</Link>
                                             <Link onClick={() => this.grabDrinkInfo("2")} to="/menu/coffee" className="menu-list-drink-nav-list-dropdown-item line-height-dropdown-two x">Coffee</Link>
                                             <Link onClick={() => this.grabDrinkInfo("3")} to="/menu/teas" className="menu-list-drink-nav-list-dropdown-item line-height-dropdown-two x">Teas</Link>
                                             <Link onClick={() => this.grabDrinkInfo("4")} to="/menu/blended" className="menu-list-drink-nav-list-dropdown-item line-height-dropdown-two x">Blended</Link>
@@ -160,10 +160,11 @@ class drinkWrapper extends React.Component {
 
                     {this.state.drinks && this.state.menuText ?
                         (<div className="menu-list-drink-items-wrapper">
-                            <Route exact path={`${this.state.newProps.props.match.url}/flavoured-lattes`} render={() => <GeneralDrinks drinks={this.state.drinks} menuText={this.state.menuText} />} />
+                            <Route exact path={`${this.state.newProps.props.match.url}/flavored-lattes`} render={() => <GeneralDrinks drinks={this.state.drinks} menuText={this.state.menuText} />} />
                             <Route exact path={`${this.state.newProps.props.match.url}/coffee`} render={() => <GeneralDrinks drinks={this.state.drinks} menuText={this.state.menuText} />} />
                             <Route exact path={`${this.state.newProps.props.match.url}/teas`} render={() => <GeneralDrinks drinks={this.state.drinks} menuText={this.state.menuText} />} />
                             <Route exact path={`${this.state.newProps.props.match.url}/blended`} render={() => <GeneralDrinks drinks={this.state.drinks} menuText={this.state.menuText} />} />
+                            <Route exact path={`${this.state.newProps.props.match.url}/smoothies`} render={() => <MenuSmoothies drinks={this.state.drinks} menuText={this.state.menuText} />} />
                         </div>)
 
                         : (null)}

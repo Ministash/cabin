@@ -1,7 +1,7 @@
 import React from "react";
 import "./generalDrinks.css";
 import { DrinksCards1, DrinksCards2, DrinksCards3 } from "../menuDrinkCards/drinksCards";
-import MenuTextCard from '../menuDrinkCards/menuTextCard';
+import {MenuTextCard} from '../menuDrinkCards/menuTextCard/index';
 
 class generalDrinks extends React.Component {
     constructor(props) {
@@ -11,11 +11,6 @@ class generalDrinks extends React.Component {
             newTextInformation: props.menuText
         };
     }
-
-    // componentDidMount(){
-    //     console.log(this.state.drinks);
-    //     console.log(this.state.newTextInformation);
-    // }
 
 
     render() {

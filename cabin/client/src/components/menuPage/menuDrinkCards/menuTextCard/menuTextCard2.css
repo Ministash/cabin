@@ -1,10 +1,15 @@
-#menu-list-drink-information-box{
+#menu-list-drink-information-box-2{
     position: relative;
     margin: 0 auto;
-    margin-top: 10px;
+    margin-top: 30px;
     border: 1px solid #d8c37a;
     max-height: 500px;
     width: 90%;
+}
+
+.floating-menu-list-drink-information-box-2{
+    float: left;
+    width: 100%;
 }
 
 .menu-list-drink-item-information-text-wrapper-coffee{

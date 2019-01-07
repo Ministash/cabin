@@ -6,6 +6,12 @@ module.exports = function (sequelize, DataTypes) {
             validate: {
                 len: [1, 500]
             }
+        }, category: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            validate: {
+                len: [1, 500]
+            }
         }
     });
     return DrinksMenuText;

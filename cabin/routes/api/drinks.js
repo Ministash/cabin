@@ -39,6 +39,12 @@ router.route("/:id")
                 autoR(Blended);
             };
                 break;
+            case "5": {
+                let Smoothies = db.Smoothies;
+                let BreakfastSmoothies = db.BreakfastSmoothies;
+                autoRSmoothies(Smoothies, BreakfastSmoothies);
+            };
+                break;
             default: autoR(Lattes);
                 break;
         }
@@ -60,6 +66,48 @@ router.route("/:id")
                         })
 
                 });
+        }
+
+        function autoRSmoothies(changingDrink1, changingDrink2) {
+            let sendingData = {
+                drinks: {
+                    drinks1: null,
+                    drinks2: null,
+                },
+                text: {
+                    text: null
+                }
+            }
+
+            changingDrink1.findAll({})
+                .then(function (data) {
+                    sendingData.drinks.drinks1 = data
+                })
+
+                .then(function () {
+
+                    changingDrink2.findAll({})
+                        .then(function (data) {
+
+                            sendingData.drinks.drinks2 = data
+                        })
+                        .then(function () {
+
+                            db.DrinksMenuText.findAll({
+                                where: { category: "smoothies" }
+                            })
+                                .then(function (data) {
+
+                                    sendingData.text.text = data;
+
+                                    console.log(sendingData.text.text);
+                                    res.send({ generalDrinks: sendingData });
+                                })
+
+                        })
+
+
+                })
         }
     });
 
