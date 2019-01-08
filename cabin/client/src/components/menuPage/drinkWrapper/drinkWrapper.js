@@ -19,6 +19,7 @@ class drinkWrapper extends React.Component {
         this.updateWindowListener = this.updateWindowListener.bind(this);
         this.showMenu = this.showMenu.bind(this);
         this.closeMenu = this.closeMenu.bind(this);
+        this.linkOption = this.linkOption.bind(this);
     }
 
     componentDidMount() {
@@ -110,6 +111,27 @@ class drinkWrapper extends React.Component {
             }).catch(err => console.log(err))
     }
 
+    linkOption = (key) => {
+        let newClassName = '';
+        if (key === 2) {
+            newClassName = 'menu-list-drink-nav-list-wrapper-dropdown';
+        } else {
+            newClassName = 'menu-list-drink-nav-list-wrapper';
+        }
+        return (
+            <div className={newClassName}>
+                <div></div>
+                <Link onClick={() => this.grabDrinkInfo("Lattes")} to="/menu/flavored-lattes" className="menu-list-drink-nav-list-dropdown-item line-height-dropdown-one x">Flavored Lattes</Link>
+                <Link onClick={() => this.grabDrinkInfo("Coffee")} to="/menu/coffee" className="menu-list-drink-nav-list-dropdown-item line-height-dropdown-two x">Coffee</Link>
+                <Link onClick={() => this.grabDrinkInfo("Tea")} to="/menu/teas" className="menu-list-drink-nav-list-dropdown-item line-height-dropdown-two x">Teas</Link>
+                <Link onClick={() => this.grabDrinkInfo("Blended")} to="/menu/blended" className="menu-list-drink-nav-list-dropdown-item line-height-dropdown-two x">Blended</Link>
+                <Link onClick={() => this.grabDrinkInfo("Smoothies")} to="/menu/smoothies" className="menu-list-drink-nav-list-dropdown-item line-height-dropdown-two x">Smoothies</Link>
+                <Link onClick={() => this.grabDrinkInfo("Lattes")} to="/menu/more" className="menu-list-drink-nav-list-dropdown-item line-height-dropdown-two x">More</Link>
+
+            </div>
+        )
+    }
+
     render() {
         const isDesktop = this.state.isDesktop;
         return (
@@ -126,15 +148,9 @@ class drinkWrapper extends React.Component {
                             Popular Drinks
                         </div>
                         {/* These are my links before they are converted into a drop down menu */}
-                        {isDesktop ? (<div className="menu-list-drink-nav-list-wrapper">
-                            <div></div>
-                            <Link onClick={() => this.grabDrinkInfo("Lattes")} to="/menu/flavored-lattes" className="menu-list-drink-nav-list-item x">Flavored Lattes</Link>
-                            <Link onClick={() => this.grabDrinkInfo("Coffee")} to="/menu/coffee" className="menu-list-drink-nav-list-item x">Coffee</Link>
-                            <Link onClick={() => this.grabDrinkInfo("Tea")} to="/menu/teas" className="menu-list-drink-nav-list-item x">Teas</Link>
-                            <Link onClick={() => this.grabDrinkInfo("Blended")} to="/menu/blended" className="menu-list-drink-nav-list-item x">Blended</Link>
-                            <Link onClick={() => this.grabDrinkInfo("Smoothies")} to="/menu/smoothies" className="menu-list-drink-nav-list-item x">Smoothies</Link>
-                            <Link onClick={() => this.grabDrinkInfo("Lattes")} to="/menu/more" className="menu-list-drink-nav-list-item x">More</Link>
-                        </div>) :
+                        {isDesktop ? (
+                                this.linkOption(1)
+                        ) :
 
                             (
                                 <div onClick={this.showMenu} className="menu-list-drink-nav-list-box">
@@ -142,13 +158,8 @@ class drinkWrapper extends React.Component {
                                     {/* These are my links after they are converted into a drop down menu. This is triggered by
                                     the boolean showMenu which is set to true when the window size reaches a certain width. */}
                                     {this.state.showMenu ?
-                                        (<div className="menu-list-drink-nav-list-wrapper-dropdown">
-                                            <Link onClick={() => this.grabDrinkInfo("Lattes")} to="/menu/flavored-lattes" className="menu-list-drink-nav-list-dropdown-item line-height-dropdown-one x">Flavored Lattes</Link>
-                                            <Link onClick={() => this.grabDrinkInfo("Coffee")} to="/menu/coffee" className="menu-list-drink-nav-list-dropdown-item line-height-dropdown-two x">Coffee</Link>
-                                            <Link onClick={() => this.grabDrinkInfo("Tea")} to="/menu/teas" className="menu-list-drink-nav-list-dropdown-item line-height-dropdown-two x">Teas</Link>
-                                            <Link onClick={() => this.grabDrinkInfo("Blended")} to="/menu/blended" className="menu-list-drink-nav-list-dropdown-item line-height-dropdown-two x">Blended</Link>
-                                            <Link onClick={() => this.grabDrinkInfo("Smoothies")} to="/menu/smoothies" className="menu-list-drink-nav-list-dropdown-item line-height-dropdown-two x">Smoothies</Link>
-                                            <Link onClick={() => this.grabDrinkInfo("Lattes")} to="/menu/more" className="menu-list-drink-nav-list-dropdown-item line-height-dropdown-two x">More</Link>
+                                        (<div>
+                                            {this.linkOption(2)}
                                         </div>)
                                         : (null)}
                                 </div>
@@ -184,7 +195,7 @@ class drinkWrapper extends React.Component {
 
 
                 <div></div>
-            </div>
+            </div >
         )
     }
 };
