@@ -44,40 +44,25 @@ class drinkWrapper extends React.Component {
         //This function ensures that even if the page is reloaded that my information will stay consistant
         switch (this.state.newProps.props.location.pathname) {
 
-            case '/menu/flavored-lattes': {
-                let foundKey = "Lattes"
-                this.grabDrinkInfo(foundKey);
+            case '/menu/flavored-lattes': {let foundKey = "Lattes"; this.grabDrinkInfo(foundKey);};
+                break;
+            case "/menu/coffee": {let foundKey = "Coffee"; this.grabDrinkInfo(foundKey);
             };
                 break;
-            case "/menu/coffee": {
-                let foundKey = "Coffee"
-                this.grabDrinkInfo(foundKey);
+            case "/menu/teas": {let foundKey = "Tea"; this.grabDrinkInfo(foundKey);
             };
                 break;
-            case "/menu/teas": {
-                let foundKey = "Tea"
-                this.grabDrinkInfo(foundKey);
+            case "/menu/blended": {let foundKey = "Blended"; this.grabDrinkInfo(foundKey);
             };
                 break;
-            case "/menu/blended": {
-                let foundKey = "Blended"
-                this.grabDrinkInfo(foundKey);
+            case "/menu/smoothies": {let foundKey = "Smoothies"; this.grabDrinkInfo(foundKey);
             };
                 break;
-            case "/menu/smoothies": {
-                let foundKey = "Smoothies"
-                this.grabDrinkInfo(foundKey);
-            };
-                break;
-            case "/menu/more": {
-                let foundKey = "Lattes"
-                this.grabDrinkInfo(foundKey);
+            case "/menu/more": {let foundKey = "Lattes"; this.grabDrinkInfo(foundKey);
             };
                 break;
 
-            default: {
-                let foundKey = "1"
-                this.grabDrinkInfo(foundKey);
+            default: {let foundKey = "Lattes"; this.grabDrinkInfo(foundKey);
             };
                 break;
         }
@@ -101,6 +86,7 @@ class drinkWrapper extends React.Component {
         this.setState({ drinks: null });
         this.setState({ menuText: null });
         this.setState({ menuTextName: null });
+        //Key is passed through as the name for the database that we are accessing. Key would be something like "Coffee"
         this.setState({ menuTextName: key });
 
         //Calling on my Axios API call. This passes in the key and then returns what it gets on my promise
@@ -112,28 +98,37 @@ class drinkWrapper extends React.Component {
     }
 
     linkOption = (key) => {
-        let newClassName = '';
+        //This function is just to make my code more dry. Now I only have to change the links for two different navbar menu states in one place
+        let newClassNameWrapper = '';
+        let className1 = '';
+        let className2 = '';
         if (key === 2) {
-            newClassName = 'menu-list-drink-nav-list-wrapper-dropdown';
+            //Class name for my dropdown
+            newClassNameWrapper = 'menu-list-drink-nav-list-wrapper-dropdown';
+            className1 = 'menu-list-drink-nav-list-dropdown-item line-height-dropdown-one x';
+            className2 = 'menu-list-drink-nav-list-dropdown-item line-height-dropdown-two x';
         } else {
-            newClassName = 'menu-list-drink-nav-list-wrapper';
+            //Class name for normal state
+            newClassNameWrapper = 'menu-list-drink-nav-list-wrapper';
+            className1 = 'menu-list-drink-nav-list-item line-height-one x';
+            className2 = 'menu-list-drink-nav-list-item line-height-two x';
         }
         return (
-            <div className={newClassName}>
+            <div className={newClassNameWrapper}>
                 <div></div>
-                <Link onClick={() => this.grabDrinkInfo("Lattes")} to="/menu/flavored-lattes" className="menu-list-drink-nav-list-dropdown-item line-height-dropdown-one x">Flavored Lattes</Link>
-                <Link onClick={() => this.grabDrinkInfo("Coffee")} to="/menu/coffee" className="menu-list-drink-nav-list-dropdown-item line-height-dropdown-two x">Coffee</Link>
-                <Link onClick={() => this.grabDrinkInfo("Tea")} to="/menu/teas" className="menu-list-drink-nav-list-dropdown-item line-height-dropdown-two x">Teas</Link>
-                <Link onClick={() => this.grabDrinkInfo("Blended")} to="/menu/blended" className="menu-list-drink-nav-list-dropdown-item line-height-dropdown-two x">Blended</Link>
-                <Link onClick={() => this.grabDrinkInfo("Smoothies")} to="/menu/smoothies" className="menu-list-drink-nav-list-dropdown-item line-height-dropdown-two x">Smoothies</Link>
-                <Link onClick={() => this.grabDrinkInfo("Lattes")} to="/menu/more" className="menu-list-drink-nav-list-dropdown-item line-height-dropdown-two x">More</Link>
+                <Link onClick={() => this.grabDrinkInfo("Lattes")} to="/menu/flavored-lattes" className={className1}>Flavored Lattes</Link>
+                <Link onClick={() => this.grabDrinkInfo("Coffee")} to="/menu/coffee" className={className2}>Coffee</Link>
+                <Link onClick={() => this.grabDrinkInfo("Tea")} to="/menu/teas" className={className2}>Teas</Link>
+                <Link onClick={() => this.grabDrinkInfo("Blended")} to="/menu/blended" className={className2}>Blended</Link>
+                <Link onClick={() => this.grabDrinkInfo("Smoothies")} to="/menu/smoothies" className={className2}>Smoothies</Link>
+                <Link onClick={() => this.grabDrinkInfo("Lattes")} to="/menu/more" className={className2}>More</Link>
 
             </div>
         )
     }
 
     render() {
-        const isDesktop = this.state.isDesktop;
+
         return (
             <div className="menu-list-drink-wrapper">
 
@@ -141,17 +136,15 @@ class drinkWrapper extends React.Component {
 
                 <div className="menu-list-drink-box">
 
-
                     <div className="menu-list-drink-nav">
 
                         <div className="menu-list-drink-nav-description x">
                             Popular Drinks
                         </div>
-                        {/* These are my links before they are converted into a drop down menu */}
-                        {isDesktop ? (
+                        {/* Deciding if my links should be in a drop down or not which is determined by my isDestop variable */}
+                        {this.state.isDesktop ? (
                                 this.linkOption(1)
                         ) :
-
                             (
                                 <div onClick={this.showMenu} className="menu-list-drink-nav-list-box">
                                     <div className="menu-list-drink-nav-list-button"></div>
@@ -165,12 +158,6 @@ class drinkWrapper extends React.Component {
                                 </div>
 
                             )}
-
-
-
-
-
-
                     </div>
 
                     {this.state.drinks && this.state.menuText ?
@@ -184,12 +171,6 @@ class drinkWrapper extends React.Component {
                         </div>)
 
                         : (null)}
-
-
-
-
-
-
 
                 </div>
 
