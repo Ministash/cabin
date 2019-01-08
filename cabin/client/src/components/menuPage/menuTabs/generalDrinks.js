@@ -8,7 +8,8 @@ class generalDrinks extends React.Component {
         super(props);
         this.state = {
             drinks: props.drinks,
-            newTextInformation: props.menuText
+            newTextInformation: props.menuText,
+            menuTextName: props.menuTextName
         };
     }
 
@@ -20,7 +21,7 @@ class generalDrinks extends React.Component {
         }
         return (
             <div>
-                <MenuTextCard information={this.state.newTextInformation} />
+                <MenuTextCard menuTextName={this.state.menuTextName} information={this.state.newTextInformation} />
 
                 <div className="test">
                     {this.state.drinks.map(function (item, i) {

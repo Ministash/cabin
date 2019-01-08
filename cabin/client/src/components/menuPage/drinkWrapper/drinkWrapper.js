@@ -9,6 +9,7 @@ class drinkWrapper extends React.Component {
         super(props);
         this.state = {
             newProps: props,
+            menuTextName: '',
             isDesktop: false,
             showMenu: false,
             drinks: null,
@@ -43,27 +44,27 @@ class drinkWrapper extends React.Component {
         switch (this.state.newProps.props.location.pathname) {
 
             case '/menu/flavored-lattes': {
-                let foundKey = "1"
+                let foundKey = "Lattes"
                 this.grabDrinkInfo(foundKey);
             };
                 break;
             case "/menu/coffee": {
-                let foundKey = "2"
+                let foundKey = "Coffee"
                 this.grabDrinkInfo(foundKey);
             };
                 break;
             case "/menu/teas": {
-                let foundKey = "3"
+                let foundKey = "Tea"
                 this.grabDrinkInfo(foundKey);
             };
                 break;
             case "/menu/blended": {
-                let foundKey = "4"
+                let foundKey = "Blended"
                 this.grabDrinkInfo(foundKey);
             };
                 break;
             case "/menu/smoothies": {
-                let foundKey = "5"
+                let foundKey = "Smoothies"
                 this.grabDrinkInfo(foundKey);
             };
                 break;
@@ -98,6 +99,9 @@ class drinkWrapper extends React.Component {
     grabDrinkInfo = (key) => {
         this.setState({ drinks: null });
         this.setState({ menuText: null });
+        this.setState({ menuTextName: null });
+        this.setState({ menuTextName: key });
+
         //Calling on my Axios API call. This passes in the key and then returns what it gets on my promise
         API.getDrinks(key)
             .then(res => {
@@ -124,11 +128,11 @@ class drinkWrapper extends React.Component {
                         {/* These are my links before they are converted into a drop down menu */}
                         {isDesktop ? (<div className="menu-list-drink-nav-list-wrapper">
                             <div></div>
-                            <Link onClick={() => this.grabDrinkInfo("1")} to="/menu/flavored-lattes" className="menu-list-drink-nav-list-item x">Flavored Lattes</Link>
-                            <Link onClick={() => this.grabDrinkInfo("2")} to="/menu/coffee" className="menu-list-drink-nav-list-item x">Coffee</Link>
-                            <Link onClick={() => this.grabDrinkInfo("3")} to="/menu/teas" className="menu-list-drink-nav-list-item x">Teas</Link>
-                            <Link onClick={() => this.grabDrinkInfo("4")} to="/menu/blended" className="menu-list-drink-nav-list-item x">Blended</Link>
-                            <Link onClick={() => this.grabDrinkInfo("5")} to="/menu/smoothies" className="menu-list-drink-nav-list-item x">Smoothies</Link>
+                            <Link onClick={() => this.grabDrinkInfo("Lattes")} to="/menu/flavored-lattes" className="menu-list-drink-nav-list-item x">Flavored Lattes</Link>
+                            <Link onClick={() => this.grabDrinkInfo("Coffee")} to="/menu/coffee" className="menu-list-drink-nav-list-item x">Coffee</Link>
+                            <Link onClick={() => this.grabDrinkInfo("Tea")} to="/menu/teas" className="menu-list-drink-nav-list-item x">Teas</Link>
+                            <Link onClick={() => this.grabDrinkInfo("Blended")} to="/menu/blended" className="menu-list-drink-nav-list-item x">Blended</Link>
+                            <Link onClick={() => this.grabDrinkInfo("Smoothies")} to="/menu/smoothies" className="menu-list-drink-nav-list-item x">Smoothies</Link>
                             <Link onClick={() => this.grabDrinkInfo("6")} to="/menu/more" className="menu-list-drink-nav-list-item x">More</Link>
                         </div>) :
 
@@ -139,11 +143,11 @@ class drinkWrapper extends React.Component {
                                     the boolean showMenu which is set to true when the window size reaches a certain width. */}
                                     {this.state.showMenu ?
                                         (<div className="menu-list-drink-nav-list-wrapper-dropdown">
-                                            <Link onClick={() => this.grabDrinkInfo("1")} to="/menu/flavored-lattes" className="menu-list-drink-nav-list-dropdown-item line-height-dropdown-one x">Flavored Lattes</Link>
-                                            <Link onClick={() => this.grabDrinkInfo("2")} to="/menu/coffee" className="menu-list-drink-nav-list-dropdown-item line-height-dropdown-two x">Coffee</Link>
-                                            <Link onClick={() => this.grabDrinkInfo("3")} to="/menu/teas" className="menu-list-drink-nav-list-dropdown-item line-height-dropdown-two x">Teas</Link>
-                                            <Link onClick={() => this.grabDrinkInfo("4")} to="/menu/blended" className="menu-list-drink-nav-list-dropdown-item line-height-dropdown-two x">Blended</Link>
-                                            <Link onClick={() => this.grabDrinkInfo("5")} to="/menu/smoothies" className="menu-list-drink-nav-list-dropdown-item line-height-dropdown-two x">Smoothies</Link>
+                                            <Link onClick={() => this.grabDrinkInfo("Lattes")} to="/menu/flavored-lattes" className="menu-list-drink-nav-list-dropdown-item line-height-dropdown-one x">Flavored Lattes</Link>
+                                            <Link onClick={() => this.grabDrinkInfo("Coffee")} to="/menu/coffee" className="menu-list-drink-nav-list-dropdown-item line-height-dropdown-two x">Coffee</Link>
+                                            <Link onClick={() => this.grabDrinkInfo("Tea")} to="/menu/teas" className="menu-list-drink-nav-list-dropdown-item line-height-dropdown-two x">Teas</Link>
+                                            <Link onClick={() => this.grabDrinkInfo("Blended")} to="/menu/blended" className="menu-list-drink-nav-list-dropdown-item line-height-dropdown-two x">Blended</Link>
+                                            <Link onClick={() => this.grabDrinkInfo("Smoothies")} to="/menu/smoothies" className="menu-list-drink-nav-list-dropdown-item line-height-dropdown-two x">Smoothies</Link>
                                             <Link onClick={() => this.grabDrinkInfo("6")} to="/menu/more" className="menu-list-drink-nav-list-dropdown-item line-height-dropdown-two x">More</Link>
                                         </div>)
                                         : (null)}
@@ -160,10 +164,10 @@ class drinkWrapper extends React.Component {
 
                     {this.state.drinks && this.state.menuText ?
                         (<div className="menu-list-drink-items-wrapper">
-                            <Route exact path={`${this.state.newProps.props.match.url}/flavored-lattes`} render={() => <GeneralDrinks drinks={this.state.drinks} menuText={this.state.menuText} />} />
-                            <Route exact path={`${this.state.newProps.props.match.url}/coffee`} render={() => <GeneralDrinks drinks={this.state.drinks} menuText={this.state.menuText} />} />
-                            <Route exact path={`${this.state.newProps.props.match.url}/teas`} render={() => <GeneralDrinks drinks={this.state.drinks} menuText={this.state.menuText} />} />
-                            <Route exact path={`${this.state.newProps.props.match.url}/blended`} render={() => <GeneralDrinks drinks={this.state.drinks} menuText={this.state.menuText} />} />
+                            <Route exact path={`${this.state.newProps.props.match.url}/flavored-lattes`} render={() => <GeneralDrinks drinks={this.state.drinks} menuText={this.state.menuText} menuTextName={this.state.menuTextName} />} />
+                            <Route exact path={`${this.state.newProps.props.match.url}/coffee`} render={() => <GeneralDrinks drinks={this.state.drinks} menuText={this.state.menuText} menuTextName={this.state.menuTextName} />} />
+                            <Route exact path={`${this.state.newProps.props.match.url}/teas`} render={() => <GeneralDrinks drinks={this.state.drinks} menuText={this.state.menuText} menuTextName={this.state.menuTextName} />} />
+                            <Route exact path={`${this.state.newProps.props.match.url}/blended`} render={() => <GeneralDrinks drinks={this.state.drinks} menuText={this.state.menuText} menuTextName={this.state.menuTextName} />} />
                             <Route exact path={`${this.state.newProps.props.match.url}/smoothies`} render={() => <MenuSmoothies drinks={this.state.drinks} menuText={this.state.menuText} />} />
                         </div>)
 

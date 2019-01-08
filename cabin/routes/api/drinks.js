@@ -18,35 +18,17 @@ router.route("/:id")
 
     .get(function (req, res) {
 
-        switch (req.params.id) {
-            case "1": {
-                let Lattes = db.Lattes;
-                autoR(Lattes);
-            };
-                break;
-            case "2": {
-                let Coffee = db.Coffee;
-                autoR(Coffee);
-            };
-                break;
-            case "3": {
-                let Tea = db.Tea;
-                autoR(Tea);
-            };
-                break;
-            case "4": {
-                let Blended = db.Blended;
-                autoR(Blended);
-            };
-                break;
-            case "5": {
-                let Smoothies = db.Smoothies;
-                let BreakfastSmoothies = db.BreakfastSmoothies;
-                autoRSmoothies(Smoothies, BreakfastSmoothies);
-            };
-                break;
-            default: autoR(Lattes);
-                break;
+        if(req.params.id === "Smoothies"){
+            let database1 = "Smoothies";
+            let database2 = "BreakfastSmoothies";
+            let Smoothies = db[database1];
+            let BreakfastSmoothies = db[database2];
+
+            autoRSmoothies(Smoothies, BreakfastSmoothies);
+        }else{
+            let database = req.params.id;
+            let pairedDatabaseName = db[database];
+            autoR(pairedDatabaseName);
         }
 
         function autoR(changingDrink) {
@@ -58,7 +40,7 @@ router.route("/:id")
                     sendingData.drinks = data;
 
                     db.DrinksMenuText.findOne({
-                        where: { id: req.params.id }
+                        where: { category: req.params.id }
                     })
                         .then(function (data) {
                             sendingData.text = data

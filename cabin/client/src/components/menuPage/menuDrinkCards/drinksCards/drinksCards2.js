@@ -10,7 +10,7 @@ const drinksCards2 = props => (
             <div className="menu-list-drink-item-price-wrapper-1">
                 <div className="menu-list-drink-item-price">S: ${props.item.price1}</div>
                 <div className="menu-list-drink-item-price">M: ${props.item.price2}</div>
-                <div className="menu-list-drink-item-price">L: ${props.item.price3}</div>
+                {props.item.price3 ? (<div className="menu-list-drink-item-price">L: ${props.item.price3}</div>) : (null)}
             </div>
 
         </div>

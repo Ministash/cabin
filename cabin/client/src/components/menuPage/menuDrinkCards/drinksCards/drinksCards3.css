@@ -1,0 +1,43 @@
+.menu-list-drink-items-card-3{
+    float: left;
+    width: 270px;
+    margin-top: 20px;
+    margin-right: 20px;
+    border: 1px solid #d8c37a;
+    color: #441c10;
+}
+
+.menu-list-drink-item-price-wrapper-card-3{
+    float: left;
+    height: 200px;
+    border-right: solid 5px #d8c37a;
+    width: 135px;
+}
+
+.menu-list-drink-item-price-card-3{
+    line-height: 180px;
+    text-align: center;
+    font-size: 25px;
+}
+
+.menu-list-drink-item-description-wrapper-card-3{
+    float: left;
+    height: 200px;
+    width: 49%;
+}
+
+.menu-list-drink-item-description-madeW-card-3{
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 110px;
+    font-size: 20px;
+    text-align: center;
+    border-bottom: solid 3px #d8c37a;
+}
+
+.menu-list-drink-item-description-card-3{
+    text-align: center;
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 5px;
+}
