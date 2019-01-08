@@ -7,11 +7,15 @@ class generalDrinks extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            drinks: props.drinks,
-            newTextInformation: props.menuText,
-            menuTextName: props.menuTextName
+            drinks: props.passedState.drinks,
+            newTextInformation: props.passedState.menuText,
+            menuTextName: props.passedState.menuTextName
         };
     }
+
+    // componentDidMount(){
+    //     console.log(this.state.newState);
+    // }
 
 
     render() {

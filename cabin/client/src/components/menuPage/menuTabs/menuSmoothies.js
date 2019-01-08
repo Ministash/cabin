@@ -6,15 +6,12 @@ class menuSmoothies extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            drinks1: props.drinks.drinks1,
-            drinks2: props.drinks.drinks2,
-            newTextInformation1: props.menuText[0].text,
-            newTextInformation2: props.menuText[1].text
+            drinks1: props.passedState.drinks.drinks1,
+            drinks2: props.passedState.drinks.drinks2,
+            newTextInformation1: props.passedState.menuText[0].text,
+            newTextInformation2: props.passedState.menuText[1].text,
+            menuTextName: props.passedState.menuTextName
         };
-    }
-
-    componentDidMount(){
-        console.log(this.state.drinks);
     }
 
     render() {
@@ -25,7 +22,7 @@ class menuSmoothies extends React.Component {
         let passedName = "Breakfast Smoothies";
         return (
             <div>
-                <MenuTextCard information={this.state.newTextInformation1} />
+                <MenuTextCard menuTextName={this.state.menuTextName} information={this.state.newTextInformation1} />
 
                 <div className="test">
                     {this.state.drinks1.map(function (item, i) {
