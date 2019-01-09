@@ -1,0 +1,56 @@
+.menu-more-line-separator{
+    margin: 0 auto;
+    height: 6px;
+    width: 90%;
+    background: #d8c37a;
+
+}
+
+.menu-more-line-separator-wrapper{
+    float: left;
+    width: 100%;
+    height: 6px;
+}
+
+.space{
+    float: left;
+    height: 55px;
+    width: 100%;
+   background: white;
+}
+
+/*Flavor Town */
+
+.menu-more-flavor-list-wrapper{
+    float: left;
+    width: 270px;
+    margin-top: 20px;
+    margin-right: 20px;
+    border: solid 2px #d8c37a;
+
+}
+
+.menu-more-flavor-list-name{
+    margin: 0 auto;
+    border-bottom: #441c10 solid 2px;
+    width: 70%;
+    text-align: center;
+    font-size: 25px;
+}
+
+.menu-more-flavor-list-item{
+    margin: 0 auto;
+    width: 80%;
+    font-size: 15px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.menu-more-flavor-separator{
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 2px;
+    width: 70%;
+    background: #441c10;
+}
