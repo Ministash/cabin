@@ -119,7 +119,7 @@ class menuMore extends React.Component {
                                 return  <div key={i} className="menu-more-flavor-list-item">-{item.name}</div>
                             })}
 
-                            <div class="menu-more-flavor-separator"></div>
+                            <div className="menu-more-flavor-separator"></div>
 
                             {this.state.sfsauces.map(function (item, i) {
                                 return  <div key={i} className="menu-more-flavor-list-item">-{item.name}</div>

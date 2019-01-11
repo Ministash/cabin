@@ -1,0 +1,44 @@
+.menu-list-food-cards-wrapper{
+    float: left;
+    width: 270px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 20px;
+    min-height: 300px;
+    border: 1px solid #d8c37a;
+    color: #441c10;
+}
+
+.menu-list-food-cards-name{
+    font-size: 25px;
+    color: black;
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 5px;
+}
+
+.menu-list-food-cards-price{
+    font-size: 22px;
+    border: 3px solid #441c10;
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.menu-list-food-cards-madeW{
+    font-size: 20px;
+    border-bottom: 3px solid #d8c37a;
+    text-align: center;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.menu-list-food-cards-ingredients{
+    width: 55%;
+    margin: 0 auto;
+    color: black;
+    text-align: center;
+    margin-top: 5px;
+}

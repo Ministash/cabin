@@ -56,7 +56,6 @@ class drinkWrapper extends React.Component {
 
     closeMenu() {
         //My function that handles removing the menu if something else is selected on the page
-
         this.setState({ showMenu: false }, () => {
             document.removeEventListener('click', this.closeMenu);
         });

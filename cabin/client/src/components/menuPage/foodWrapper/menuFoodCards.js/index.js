@@ -1,1 +1,0 @@
-export { default as FoodsCards1} from "./drinksCards1";

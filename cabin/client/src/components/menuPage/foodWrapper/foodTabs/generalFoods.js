@@ -1,5 +1,6 @@
 import React from "react";
 import "./generalFoods.css";
+import {FoodCards1} from '../menuFoodCards/foodCards/index';
 
 
 class generalFoods extends React.Component {
@@ -16,6 +17,7 @@ class generalFoods extends React.Component {
 
 
     render() {
+        console.log(this.state.foods);
         //Making sure that all our information is collected so the program doesn't crash when nothing is returned
         if (!this.state.foods) {
             return <h1>Loading information...</h1>
@@ -29,9 +31,8 @@ class generalFoods extends React.Component {
                         // let whichDivIsIt2 = item.div;
                         //Loading in different cards depending on what type of information comes from the database
                         return <div key={i}>
-                            <div>{item.name}</div>
+                           <FoodCards1 item={item}/>
                         </div>
-
                     })}
                 </div>
             </div>
