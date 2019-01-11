@@ -6,6 +6,9 @@ export default {
   },
   pushDrinks: function (id){
     return axios.post("/api/drinks/" + id);
+  },
+  getFoods: function (id){
+    return axios.get("/api/foods/" + id)
   }
 
 };

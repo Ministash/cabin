@@ -14,7 +14,7 @@ class navBar extends React.Component {
                 </Link>
                 <div></div>
 
-                <Link to="/menu/flavored-lattes"  className="navLink1 navLink x link">
+                <Link to="/menu/main"  className="navLink1 navLink x link">
                 Menu
                 </Link>
 

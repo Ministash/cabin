@@ -1,29 +1,27 @@
 import React from "react";
-import "./drinkWrapper.css";
-import { GeneralDrinks, MenuSmoothies, MenuMore } from "./menuTabs/index";
 import { Link, Route } from "react-router-dom";
+import './foodWrapper.css';
+import {GeneralFoods} from './menuTabs/index';
 import API from "../../../utils/API";
 
-class drinkWrapper extends React.Component {
+class foodWrapper extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            newProps: props,
-            menuTextName: '',
             isDesktop: false,
             showMenu: false,
-            drinks: null,
-            menuText: null
+            newProps: props,
+            foods: null,
         };
 
         this.updateWindowListener = this.updateWindowListener.bind(this);
         this.showMenu = this.showMenu.bind(this);
         this.closeMenu = this.closeMenu.bind(this);
         this.linkOption = this.linkOption.bind(this);
+    
     }
 
     componentDidMount() {
-        this.default();
 
         /* These two functions fire when the page is loaded ensuring that responsive things happen with my
         little drink navbar */
@@ -38,11 +36,6 @@ class drinkWrapper extends React.Component {
 
     updateWindowListener() {
         this.setState({ isDesktop: window.innerWidth > 920 });
-    }
-
-    default() { 
-        let foundKey = "Lattes"; 
-        this.grabDrinkInfo(foundKey);
     }
 
     showMenu(event) {
@@ -62,24 +55,6 @@ class drinkWrapper extends React.Component {
         });
     }
 
-    grabDrinkInfo = (key) => {
-        /*Removing the values of what is stored in state before getting new info. This makes testing things easier because if
-          information is not returned I will know what the default state of each value is.  */
-        this.setState({ drinks: null });
-        this.setState({ menuText: null });
-        this.setState({ menuTextName: null });
-        
-        //Key is passed through as the name for the database that we are accessing. Key would be something like "Coffee"
-        this.setState({ menuTextName: key });
-
-        //Calling on my Axios API call. This passes in the key and then returns what it gets on my promise
-        API.getDrinks(key)
-            .then(res => {
-                this.setState({ drinks: res.data.generalDrinks.drinks });
-                this.setState({ menuText: res.data.generalDrinks.text.text });
-            }).catch(err => console.log(err))
-    }
-
     linkOption = (key) => {
         //This function is just to make my code more dry. Now I only have to change the links for two different navbar menu states in one place
         let newClassNameWrapper = '';
@@ -87,12 +62,12 @@ class drinkWrapper extends React.Component {
         let className2 = '';
         if (key === 2) {
             //Class name for my dropdown
-            newClassNameWrapper = 'menu-list-drink-nav-list-wrapper-dropdown';
+            newClassNameWrapper = 'menu-list-food-nav-list-wrapper-dropdown';
             className1 = 'menu-list-drink-nav-list-dropdown-item line-height-dropdown-one x';
             className2 = 'menu-list-drink-nav-list-dropdown-item line-height-dropdown-two x';
         } else {
             //Class name for normal state
-            newClassNameWrapper = 'menu-list-drink-nav-list-wrapper';
+            newClassNameWrapper = 'menu-list-food-nav-list-wrapper';
             className1 = 'menu-list-drink-nav-list-item line-height-one x';
             className2 = 'menu-list-drink-nav-list-item line-height-two x';
         }
@@ -101,38 +76,54 @@ class drinkWrapper extends React.Component {
         return (
             <div className={newClassNameWrapper}>
                 <div></div>
-                <Link onClick={() => this.grabDrinkInfo("Lattes")} to="/menu/main" className={className1}>Flavored Lattes</Link>
-                <Link onClick={() => this.grabDrinkInfo("Coffee")} to="/menu/coffee" className={className2}>Coffee</Link>
-                <Link onClick={() => this.grabDrinkInfo("Tea")} to="/menu/teas" className={className2}>Teas</Link>
-                <Link onClick={() => this.grabDrinkInfo("Blended")} to="/menu/blended" className={className2}>Blended</Link>
-                <Link onClick={() => this.grabDrinkInfo("Smoothies")} to="/menu/smoothies" className={className2}>Smoothies</Link>
-                <Link onClick={() => this.grabDrinkInfo("Redbulls")} to="/menu/redbull-infuser" className={className2}>Redbull Infusers</Link>
-                <Link onClick={() => this.grabDrinkInfo("More")} to="/menu/more" className={className2}>More</Link>
+                <Link onClick={() => this.grabDrinkInfo("criossants")} to="/menu/main" className={className1}>Breakfast</Link>
+                <Link onClick={() => this.grabDrinkInfo("bagels")} to="/menu/bagels" className={className2}>Bagels</Link>
+                <Link onClick={() => this.grabDrinkInfo("paninis")} to="/menu/paninis" className={className2}>Panini's</Link>
+                <Link onClick={() => this.grabDrinkInfo("chicken-salad")} to="/menu/chicken-salad" className={className2}>Chicken Salad</Link>
+                <Link onClick={() => this.grabDrinkInfo("salad")} to="/menu/smoothies" className={className2}>Soup & Salad</Link>
+                <Link onClick={() => this.grabDrinkInfo("deli")} to="/menu/deli-sandwhiches" className={className2}>Deli Sandwiches</Link>
+                <Link onClick={() => this.grabDrinkInfo("kids")} to="/menu/kids" className={className2}>Kids</Link>
+                <Link onClick={() => this.grabDrinkInfo("more")} to="/menu/food/more" className={className2}>More</Link>
 
             </div>
         )
     }
 
-    render() {
+    grabDrinkInfo = (key) => {
+        /*Removing the values of what is stored in state before getting new info. This makes testing things easier because if
+          information is not returned I will know what the default state of each value is.  */
+        this.setState({ foods: null });
+        
+        //Key is passed through as the name for the database that we are accessing. Key would be something like "Coffee"
+        this.setState({ menuTextName: key });
 
+        //Calling on my Axios API call. This passes in the key and then returns what it gets on my promise
+        API.getFoods(key)
+            .then(res => {
+                this.setState({ foods: res.data.generalFoods });
+            }).catch(err => console.log(err))
+    }
+
+
+    render() {
         return (
-            <div className="menu-list-drink-wrapper">
+            <div className="menu-list-food-wrapper">
 
                 <div></div>
 
-                <div className="menu-list-drink-box">
+                <div className="menu-list-food-box">
 
-                    <div className="menu-list-drink-nav">
+                    <div className="menu-list-food-nav">
 
-                        <div className="menu-list-drink-nav-description x">
-                            Popular Drinks
+                        <div className="menu-list-food-nav-description x">
+                            Popular Foods
                         </div>
                         {/* Deciding if my links should be in a drop down or not which is determined by my isDestop variable */}
                         {this.state.isDesktop ? (
                                 this.linkOption(1)
                         ) :
                             (
-                                <div onClick={this.showMenu} className="menu-list-drink-nav-list-box">
+                                <div onClick={this.showMenu} className="menu-list-food-nav-list-box">
                                     <div className="menu-list-drink-nav-list-button"></div>
 
                                     {/* These are my links after they are converted into a drop down menu. This is triggered by
@@ -149,15 +140,9 @@ class drinkWrapper extends React.Component {
 
                 {/* This is where I load all of my drink items/informational box. General Drinks handles almost all of the the returned info. Menu Smoothies
                 had different options that could not be loaded into the same mold*/}
-                    {this.state.drinks && this.state.menuText ?
-                        (<div className="menu-list-drink-items-wrapper">
-                            <Route exact path={`${this.state.newProps.props.match.url}/main`} render={() => <GeneralDrinks passedState={this.state} />} />
-                            <Route exact path={`${this.state.newProps.props.match.url}/coffee`} render={() => <GeneralDrinks passedState={this.state} />} />
-                            <Route exact path={`${this.state.newProps.props.match.url}/teas`} render={() => <GeneralDrinks passedState={this.state} />} />
-                            <Route exact path={`${this.state.newProps.props.match.url}/blended`} render={() => <GeneralDrinks passedState={this.state} />} />
-                            <Route exact path={`${this.state.newProps.props.match.url}/redbull-infuser`} render={() => <GeneralDrinks passedState={this.state} />} />
-                            <Route exact path={`${this.state.newProps.props.match.url}/smoothies`} render={() => <MenuSmoothies passedState={this.state} />} />
-                            <Route exact path={`${this.state.newProps.props.match.url}/more`} render={() => <MenuMore passedState={this.state} />} />
+                    {this.state.foods ?
+                        (<div className="menu-list-food-items-wrapper">
+                            <Route exact path={`${this.state.newProps.props.match.url}/main`} render={() => <GeneralFoods passedState={this.state} />} />
                         </div>)
 
                         : (null)}
@@ -171,4 +156,4 @@ class drinkWrapper extends React.Component {
     }
 };
 
-export default drinkWrapper;
+export default foodWrapper;

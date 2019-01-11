@@ -9,13 +9,14 @@ class generalDrinks extends React.Component {
         this.state = {
             drinks: props.passedState.drinks,
             newTextInformation: props.passedState.menuText,
-            menuTextName: props.passedState.menuTextName
+            menuTextName: props.passedState.menuTextName,
+            newProps: props.NewProps
         };
     }
 
-    // componentDidMount(){
-    //     console.log(this.state.newState);
-    // }
+    componentDidMount(){
+        console.log(this.state.newProps);
+    }
 
 
     render() {

@@ -41,7 +41,7 @@ class Boxes extends React.Component {
 
                 <div className="boxes-space-two"></div>
 
-                <Link to="/menu/flavored-lattes" className="body-one-boxes">
+                <Link to="/menu/main" className="body-one-boxes">
                     <div></div>
                     <div className="first-box">
                     <div className="body-boxes-overlay-one">
