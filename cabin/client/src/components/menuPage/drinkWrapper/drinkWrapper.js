@@ -40,8 +40,8 @@ class drinkWrapper extends React.Component {
         this.setState({ isDesktop: window.innerWidth > 920 });
     }
 
-    default() { 
-        let foundKey = "Lattes"; 
+    default() {
+        let foundKey = "Lattes";
         this.grabDrinkInfo(foundKey);
     }
 
@@ -67,7 +67,7 @@ class drinkWrapper extends React.Component {
         this.setState({ drinks: null });
         this.setState({ menuText: null });
         this.setState({ menuTextName: null });
-        
+
         //Key is passed through as the name for the database that we are accessing. Key would be something like "Coffee"
         this.setState({ menuTextName: key });
 
@@ -101,19 +101,18 @@ class drinkWrapper extends React.Component {
             <div className={newClassNameWrapper}>
                 <div></div>
                 <Link onClick={() => this.grabDrinkInfo("Lattes")} to="/menu/main" className={className1}>Flavored Lattes</Link>
-                <Link onClick={() => this.grabDrinkInfo("Coffee")} to="/menu/coffee" className={className2}>Coffee</Link>
-                <Link onClick={() => this.grabDrinkInfo("Tea")} to="/menu/teas" className={className2}>Teas</Link>
-                <Link onClick={() => this.grabDrinkInfo("Blended")} to="/menu/blended" className={className2}>Blended</Link>
-                <Link onClick={() => this.grabDrinkInfo("Smoothies")} to="/menu/smoothies" className={className2}>Smoothies</Link>
-                <Link onClick={() => this.grabDrinkInfo("Redbulls")} to="/menu/redbull-infuser" className={className2}>Redbull Infusers</Link>
-                <Link onClick={() => this.grabDrinkInfo("More")} to="/menu/more" className={className2}>More</Link>
+                <Link onClick={() => this.grabDrinkInfo("Coffee")} to="/menu/main" className={className2}>Coffee</Link>
+                <Link onClick={() => this.grabDrinkInfo("Tea")} to="/menu/main" className={className2}>Teas</Link>
+                <Link onClick={() => this.grabDrinkInfo("Blended")} to="/menu/main" className={className2}>Blended</Link>
+                <Link onClick={() => this.grabDrinkInfo("Smoothies")} to="/menu/main" className={className2}>Smoothies</Link>
+                <Link onClick={() => this.grabDrinkInfo("Redbulls")} to="/menu/main" className={className2}>Redbull Infusers</Link>
+                <Link onClick={() => this.grabDrinkInfo("More")} to="/menu/main" className={className2}>More</Link>
 
             </div>
         )
     }
 
     render() {
-
         return (
             <div className="menu-list-drink-wrapper">
 
@@ -128,7 +127,7 @@ class drinkWrapper extends React.Component {
                         </div>
                         {/* Deciding if my links should be in a drop down or not which is determined by my isDestop variable */}
                         {this.state.isDesktop ? (
-                                this.linkOption(1)
+                            this.linkOption(1)
                         ) :
                             (
                                 <div onClick={this.showMenu} className="menu-list-drink-nav-list-box">
@@ -146,19 +145,18 @@ class drinkWrapper extends React.Component {
                             )}
                     </div>
 
-                {/* This is where I load all of my drink items/informational box. General Drinks handles almost all of the the returned info. Menu Smoothies
+                    {/* This is where I load all of my drink items/informational box. General Drinks handles almost all of the the returned info. Menu Smoothies
                 had different options that could not be loaded into the same mold*/}
                     {this.state.drinks && this.state.menuText ?
                         (<div className="menu-list-drink-items-wrapper">
-                            <Route exact path={`${this.state.newProps.props.match.url}/main`} render={() => <GeneralDrinks passedState={this.state} />} />
-                            <Route exact path={`${this.state.newProps.props.match.url}/coffee`} render={() => <GeneralDrinks passedState={this.state} />} />
-                            <Route exact path={`${this.state.newProps.props.match.url}/teas`} render={() => <GeneralDrinks passedState={this.state} />} />
-                            <Route exact path={`${this.state.newProps.props.match.url}/blended`} render={() => <GeneralDrinks passedState={this.state} />} />
-                            <Route exact path={`${this.state.newProps.props.match.url}/redbull-infuser`} render={() => <GeneralDrinks passedState={this.state} />} />
-                            <Route exact path={`${this.state.newProps.props.match.url}/smoothies`} render={() => <MenuSmoothies passedState={this.state} />} />
-                            <Route exact path={`${this.state.newProps.props.match.url}/more`} render={() => <MenuMore passedState={this.state} />} />
+                           {this.state.menuTextName === "Smoothies" ?
+                            (<Route exact path={`${this.state.newProps.props.match.url}/main`} render={() => <MenuSmoothies passedState={this.state} />} />) : 
+                           this.state.menuTextName === "More" ?
+                            (<Route exact path={`${this.state.newProps.props.match.url}/main`} render={() => <MenuMore passedState={this.state} />} />)
+                             : 
+                            ( <Route exact path={`${this.state.newProps.props.match.url}/main`} render={() => <GeneralDrinks passedState={this.state} />} /> )
+                            }
                         </div>)
-
                         : (null)}
 
                 </div>

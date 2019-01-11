@@ -82,13 +82,13 @@ class foodWrapper extends React.Component {
             <div className={newClassNameWrapper}>
                 <div></div>
                 <Link onClick={() => this.grabDrinkInfo("criossants")} to="/menu/main" className={className1}>Breakfast</Link>
-                <Link onClick={() => this.grabDrinkInfo("bagels")} to="/menu/bagels" className={className2}>Bagels</Link>
-                <Link onClick={() => this.grabDrinkInfo("paninis")} to="/menu/paninis" className={className2}>Panini's</Link>
-                <Link onClick={() => this.grabDrinkInfo("chicken-salad")} to="/menu/chicken-salad" className={className2}>Chicken Salad</Link>
-                <Link onClick={() => this.grabDrinkInfo("salad")} to="/menu/salad" className={className2}>Soup & Salad</Link>
-                <Link onClick={() => this.grabDrinkInfo("deli")} to="/menu/deli-sandwhiches" className={className2}>Deli Sandwiches</Link>
-                <Link onClick={() => this.grabDrinkInfo("kids")} to="/menu/kids" className={className2}>Kids</Link>
-                <Link onClick={() => this.grabDrinkInfo("other")} to="/menu/other" className={className2}>More</Link>
+                <Link onClick={() => this.grabDrinkInfo("bagels")} to="/menu/main" className={className2}>Bagels</Link>
+                <Link onClick={() => this.grabDrinkInfo("paninis")} to="/menu/main" className={className2}>Panini's</Link>
+                <Link onClick={() => this.grabDrinkInfo("chicken-salad")} to="/menu/main" className={className2}>Chicken Salad</Link>
+                <Link onClick={() => this.grabDrinkInfo("salad")} to="/menu/main" className={className2}>Soup & Salad</Link>
+                <Link onClick={() => this.grabDrinkInfo("deli")} to="/menu/main" className={className2}>Deli Sandwiches</Link>
+                <Link onClick={() => this.grabDrinkInfo("kids")} to="/menu/main" className={className2}>Kids</Link>
+                <Link onClick={() => this.grabDrinkInfo("other")} to="/menu/main" className={className2}>More</Link>
 
             </div>
         )
@@ -149,13 +149,6 @@ class foodWrapper extends React.Component {
                     {this.state.foods ?
                         (<div className="menu-list-food-items-wrapper">
                             <Route exact path={`${this.state.newProps.props.match.url}/main`} render={() => <GeneralFoods passedState={this.state} />} />
-                            <Route exact path={`${this.state.newProps.props.match.url}/bagels`} render={() => <GeneralFoods passedState={this.state} />} />
-                            <Route exact path={`${this.state.newProps.props.match.url}/paninis`} render={() => <GeneralFoods passedState={this.state} />} />
-                            <Route exact path={`${this.state.newProps.props.match.url}/chicken-salad`} render={() => <GeneralFoods passedState={this.state} />} />
-                            <Route exact path={`${this.state.newProps.props.match.url}/salad`} render={() => <GeneralFoods passedState={this.state} />} />
-                            <Route exact path={`${this.state.newProps.props.match.url}/deli-sandwhiches`} render={() => <GeneralFoods passedState={this.state} />} />
-                            <Route exact path={`${this.state.newProps.props.match.url}/kids`} render={() => <GeneralFoods passedState={this.state} />} />
-                            <Route exact path={`${this.state.newProps.props.match.url}/other`} render={() => <GeneralFoods passedState={this.state} />} />
                         </div>)
 
                         : (null)}
