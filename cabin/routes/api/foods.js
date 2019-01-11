@@ -3,14 +3,23 @@ const db = require("../../models");
 
 router.route("/:id")
     .get(function (req, res) {
-        console.log(req.params.id);
         
+        
+        let sendingData = {}
+
             db.Food.findAll({
                 where: { category: req.params.id }
             })
                 .then(function (data) {
-                    let sendingData = data;
-                    res.send({ generalFoods: sendingData });
+                    sendingData.foods = data;
+
+                    db.DrinksMenuText.findAll({
+                        where: { category: req.params.id }
+                    }).then(function (data) {
+
+                        sendingData.text = data
+                        res.send({ generalFoods: sendingData });
+                    })
                 })
     });
 

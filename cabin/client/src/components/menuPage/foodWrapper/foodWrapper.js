@@ -12,6 +12,8 @@ class foodWrapper extends React.Component {
             showMenu: false,
             newProps: props,
             foods: null,
+            menuText: null,
+            menuTextName: null
         };
 
         this.updateWindowListener = this.updateWindowListener.bind(this);
@@ -56,8 +58,8 @@ class foodWrapper extends React.Component {
     }
 
     default() { 
-        let foundKey = "criossants"; 
-        this.grabDrinkInfo(foundKey);
+        let foundKey = "Criossants"; 
+        this.grabFoodsInfo(foundKey);
     }
 
     linkOption = (key) => {
@@ -81,24 +83,25 @@ class foodWrapper extends React.Component {
         return (
             <div className={newClassNameWrapper}>
                 <div></div>
-                <Link onClick={() => this.grabDrinkInfo("criossants")} to="/menu/main" className={className1}>Breakfast</Link>
-                <Link onClick={() => this.grabDrinkInfo("bagels")} to="/menu/main" className={className2}>Bagels</Link>
-                <Link onClick={() => this.grabDrinkInfo("paninis")} to="/menu/main" className={className2}>Panini's</Link>
-                <Link onClick={() => this.grabDrinkInfo("chicken-salad")} to="/menu/main" className={className2}>Chicken Salad</Link>
-                <Link onClick={() => this.grabDrinkInfo("salad")} to="/menu/main" className={className2}>Soup & Salad</Link>
-                <Link onClick={() => this.grabDrinkInfo("deli")} to="/menu/main" className={className2}>Deli Sandwiches</Link>
-                <Link onClick={() => this.grabDrinkInfo("kids")} to="/menu/main" className={className2}>Kids</Link>
-                <Link onClick={() => this.grabDrinkInfo("other")} to="/menu/main" className={className2}>More</Link>
+                <Link onClick={() => this.grabFoodsInfo("Criossants")} to="/menu/main" className={className1}>Breakfast</Link>
+                <Link onClick={() => this.grabFoodsInfo("Bagels")} to="/menu/main" className={className2}>Bagels</Link>
+                <Link onClick={() => this.grabFoodsInfo("Paninis")} to="/menu/main" className={className2}>Panini's</Link>
+                <Link onClick={() => this.grabFoodsInfo("Chicken-salad")} to="/menu/main" className={className2}>Chicken Salad</Link>
+                <Link onClick={() => this.grabFoodsInfo("Salad")} to="/menu/main" className={className2}>Soup & Salad</Link>
+                <Link onClick={() => this.grabFoodsInfo("Deli")} to="/menu/main" className={className2}>Deli Sandwiches</Link>
+                <Link onClick={() => this.grabFoodsInfo("Kids")} to="/menu/main" className={className2}>Kids</Link>
+                <Link onClick={() => this.grabFoodsInfo("Other")} to="/menu/main" className={className2}>More</Link>
 
             </div>
         )
     }
 
-    grabDrinkInfo = (key) => {
-        console.log(key);
+    grabFoodsInfo = (key) => {
         /*Removing the values of what is stored in state before getting new info. This makes testing things easier because if
           information is not returned I will know what the default state of each value is.  */
         this.setState({ foods: null });
+        this.setState({ menuText: null });
+        this.setState({ menuTextName: null });
         
         //Key is passed through as the name for the database that we are accessing. Key would be something like "Coffee"
         this.setState({ menuTextName: key });
@@ -106,7 +109,8 @@ class foodWrapper extends React.Component {
         //Calling on my Axios API call. This passes in the key and then returns what it gets on my promise
         API.getFoods(key)
             .then(res => {
-                this.setState({ foods: res.data.generalFoods });
+                this.setState({ foods: res.data.generalFoods.foods });
+                this.setState({ menuText: res.data.generalFoods.text[0].text });
             }).catch(err => console.log(err))
     }
 
@@ -146,7 +150,7 @@ class foodWrapper extends React.Component {
 
                 {/* This is where I load all of my drink items/informational box. General Drinks handles almost all of the the returned info. Menu Smoothies
                 had different options that could not be loaded into the same mold*/}
-                    {this.state.foods ?
+                    {this.state.foods && this.state.menuText ?
                         (<div className="menu-list-food-items-wrapper">
                             <Route exact path={`${this.state.newProps.props.match.url}/main`} render={() => <GeneralFoods passedState={this.state} />} />
                         </div>)

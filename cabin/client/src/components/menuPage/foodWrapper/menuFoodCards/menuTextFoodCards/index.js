@@ -1,0 +1,1 @@
+export { default as MenuTextFoodCard1} from "./menuTextFoodCard1";
