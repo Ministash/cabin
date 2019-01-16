@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, Route } from "react-router-dom";
 import './foodWrapper.css';
-import {GeneralFoods} from './foodTabs/index';
+import {GeneralFoods, MenuBreakfast} from './foodTabs/index';
 import API from "../../../utils/API";
 
 class foodWrapper extends React.Component {
@@ -37,7 +37,7 @@ class foodWrapper extends React.Component {
     }
 
     updateWindowListener() {
-        this.setState({ isDesktop: window.innerWidth > 920 });
+        this.setState({ isDesktop: window.innerWidth > 1045 });
     }
 
     showMenu(event) {
@@ -70,13 +70,13 @@ class foodWrapper extends React.Component {
         if (key === 2) {
             //Class name for my dropdown
             newClassNameWrapper = 'menu-list-food-nav-list-wrapper-dropdown';
-            className1 = 'menu-list-drink-nav-list-dropdown-item line-height-dropdown-one x';
-            className2 = 'menu-list-drink-nav-list-dropdown-item line-height-dropdown-two x';
+            className1 = 'menu-list-food-nav-list-dropdown-item line-height-dropdown-one x';
+            className2 = 'menu-list-food-nav-list-dropdown-item line-height-dropdown-two x';
         } else {
             //Class name for normal state
             newClassNameWrapper = 'menu-list-food-nav-list-wrapper';
-            className1 = 'menu-list-drink-nav-list-item line-height-one x';
-            className2 = 'menu-list-drink-nav-list-item line-height-two x';
+            className1 = 'menu-list-food-nav-list-item line-height-one x';
+            className2 = 'menu-list-food-nav-list-item line-height-two x';
         }
 
         //This piece of JSX is what shows up for my smaller navbar and my dropdown menu.
@@ -84,13 +84,13 @@ class foodWrapper extends React.Component {
             <div className={newClassNameWrapper}>
                 <div></div>
                 <Link onClick={() => this.grabFoodsInfo("Criossants")} to="/menu/main" className={className1}>Breakfast</Link>
-                <Link onClick={() => this.grabFoodsInfo("Bagels")} to="/menu/main" className={className2}>Bagels</Link>
-                <Link onClick={() => this.grabFoodsInfo("Paninis")} to="/menu/main" className={className2}>Panini's</Link>
-                <Link onClick={() => this.grabFoodsInfo("Chicken-salad")} to="/menu/main" className={className2}>Chicken Salad</Link>
-                <Link onClick={() => this.grabFoodsInfo("Salad")} to="/menu/main" className={className2}>Soup & Salad</Link>
+                <Link onClick={() => this.grabFoodsInfo("Bagels")} to="/menu/main" className={className1}>Bagels</Link>
+                <Link onClick={() => this.grabFoodsInfo("Paninis")} to="/menu/main" className={className1}>Panini's</Link>
+                <Link onClick={() => this.grabFoodsInfo("Chicken-Salad")} to="/menu/main" className={className1}>Chicken Salad</Link>
+                <Link onClick={() => this.grabFoodsInfo("Salad")} to="/menu/main" className={className1}>Soup & Salad</Link>
                 <Link onClick={() => this.grabFoodsInfo("Deli")} to="/menu/main" className={className2}>Deli Sandwiches</Link>
-                <Link onClick={() => this.grabFoodsInfo("Kids")} to="/menu/main" className={className2}>Kids</Link>
-                <Link onClick={() => this.grabFoodsInfo("Other")} to="/menu/main" className={className2}>More</Link>
+                <Link onClick={() => this.grabFoodsInfo("Kids")} to="/menu/main" className={className1}>Kids</Link>
+                <Link onClick={() => this.grabFoodsInfo("Other")} to="/menu/main" className={className1}>More</Link>
 
             </div>
         )
@@ -110,7 +110,7 @@ class foodWrapper extends React.Component {
         API.getFoods(key)
             .then(res => {
                 this.setState({ foods: res.data.generalFoods.foods });
-                this.setState({ menuText: res.data.generalFoods.text[0].text });
+                this.setState({ menuText: res.data.generalFoods.text.text });
             }).catch(err => console.log(err))
     }
 
@@ -152,7 +152,11 @@ class foodWrapper extends React.Component {
                 had different options that could not be loaded into the same mold*/}
                     {this.state.foods && this.state.menuText ?
                         (<div className="menu-list-food-items-wrapper">
-                            <Route exact path={`${this.state.newProps.props.match.url}/main`} render={() => <GeneralFoods passedState={this.state} />} />
+                        {this.state.menuTextName === "Criossants" ? 
+                        <Route exact path={`${this.state.newProps.props.match.url}/main`} render={() => <MenuBreakfast passedState={this.state} />} />
+                        : <Route exact path={`${this.state.newProps.props.match.url}/main`} render={() => <GeneralFoods passedState={this.state} />} />
+                        }
+                         
                         </div>)
 
                         : (null)}

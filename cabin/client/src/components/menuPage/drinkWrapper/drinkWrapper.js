@@ -37,7 +37,7 @@ class drinkWrapper extends React.Component {
     }
 
     updateWindowListener() {
-        this.setState({ isDesktop: window.innerWidth > 920 });
+        this.setState({ isDesktop: window.innerWidth > 935 });
     }
 
     default() {
@@ -76,24 +76,21 @@ class drinkWrapper extends React.Component {
             .then(res => {
                 this.setState({ drinks: res.data.generalDrinks.drinks });
                 this.setState({ menuText: res.data.generalDrinks.text.text });
-            }).catch(err => console.log(err))
+            }).catch(err => console.log(err));
     }
 
     linkOption = (key) => {
         //This function is just to make my code more dry. Now I only have to change the links for two different navbar menu states in one place
         let newClassNameWrapper = '';
         let className1 = '';
-        let className2 = '';
         if (key === 2) {
             //Class name for my dropdown
             newClassNameWrapper = 'menu-list-drink-nav-list-wrapper-dropdown';
             className1 = 'menu-list-drink-nav-list-dropdown-item line-height-dropdown-one x';
-            className2 = 'menu-list-drink-nav-list-dropdown-item line-height-dropdown-two x';
         } else {
             //Class name for normal state
             newClassNameWrapper = 'menu-list-drink-nav-list-wrapper';
             className1 = 'menu-list-drink-nav-list-item line-height-one x';
-            className2 = 'menu-list-drink-nav-list-item line-height-two x';
         }
 
         //This piece of JSX is what shows up for my smaller navbar and my dropdown menu.
@@ -101,12 +98,12 @@ class drinkWrapper extends React.Component {
             <div className={newClassNameWrapper}>
                 <div></div>
                 <Link onClick={() => this.grabDrinkInfo("Lattes")} to="/menu/main" className={className1}>Flavored Lattes</Link>
-                <Link onClick={() => this.grabDrinkInfo("Coffee")} to="/menu/main" className={className2}>Coffee</Link>
-                <Link onClick={() => this.grabDrinkInfo("Tea")} to="/menu/main" className={className2}>Teas</Link>
-                <Link onClick={() => this.grabDrinkInfo("Blended")} to="/menu/main" className={className2}>Blended</Link>
-                <Link onClick={() => this.grabDrinkInfo("Smoothies")} to="/menu/main" className={className2}>Smoothies</Link>
-                <Link onClick={() => this.grabDrinkInfo("Redbulls")} to="/menu/main" className={className2}>Redbull Infusers</Link>
-                <Link onClick={() => this.grabDrinkInfo("More")} to="/menu/main" className={className2}>More</Link>
+                <Link onClick={() => this.grabDrinkInfo("Coffee")} to="/menu/main" className={className1}>Coffee</Link>
+                <Link onClick={() => this.grabDrinkInfo("Tea")} to="/menu/main" className={className1}>Teas</Link>
+                <Link onClick={() => this.grabDrinkInfo("Blended")} to="/menu/main" className={className1}>Blended</Link>
+                <Link onClick={() => this.grabDrinkInfo("Smoothies")} to="/menu/main" className={className1}>Smoothies</Link>
+                <Link onClick={() => this.grabDrinkInfo("Redbulls")} to="/menu/main" className={className1}>Redbull Infusers</Link>
+                <Link onClick={() => this.grabDrinkInfo("More")} to="/menu/main" className={className1}>More</Link>
 
             </div>
         )

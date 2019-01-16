@@ -49,7 +49,8 @@ router.route("/:id")
                         where: { category: req.params.id }
                     })
                         .then(function (data) {
-                            sendingData.text = data
+                            sendingData.text = data;
+                            
                             res.send({ generalDrinks: sendingData });
                         })
 
@@ -87,8 +88,6 @@ router.route("/:id")
                                 .then(function (data) {
 
                                     sendingData.text.text = data;
-
-                                    console.log(sendingData.text.text);
                                     res.send({ generalDrinks: sendingData });
                                 })
 

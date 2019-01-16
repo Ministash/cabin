@@ -9,6 +9,23 @@
     color: #441c10;
 }
 
+.menu-list-food-cards-wrapper-floater{
+    float: left;
+    position: relative;
+    width: 100%;
+}
+
+.menu-list-food-cards-wrapper-2{
+    margin: 0 auto;
+    width: 90%;
+    height: 200px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #d8c37a;
+    color: #441c10;
+}
+
+
 .menu-list-food-cards-name{
     font-size: 25px;
     color: black;
@@ -26,6 +43,14 @@
     margin: 0 auto;
 }
 
+.menu-list-food-cards-price-2{
+    font-size: 22px;
+    border: 3px solid #441c10;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
 .menu-list-food-cards-madeW{
     font-size: 20px;
     border-bottom: 3px solid #d8c37a;
@@ -35,10 +60,48 @@
     margin-top: 20px;
 }
 
+.menu-list-food-cards-madeW-3{
+    font-size: 20px;
+    border-bottom: 3px solid #d8c37a;
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
 .menu-list-food-cards-ingredients{
     width: 55%;
     margin: 0 auto;
     color: black;
     text-align: center;
     margin-top: 5px;
+}
+
+.menu-list-food-cards-ingredients-3{
+    width: 90%;
+    margin: 0 auto;
+    color: black;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.menu-list-food-cards-madeW-wrapper{
+    float: left;
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 115px;
+    height: 201px;
+    border-right: #d8c37a solid 4px;
+    border-top: 4px #d8c37a solid;
+
+}
+
+.menu-list-food-cards-included-wrapper{
+    float: right;
+    margin-top: 20px;
+    margin-right: 20px;
+    width: 111px;
+    height: 201px;
+    border-top: 4px #d8c37a solid;
+
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import "./generalFoods.css";
-import {FoodCards1} from '../menuFoodCards/foodCards/index';
+import {FoodCards1, FoodCards3} from '../menuFoodCards/foodCards/index';
 import {MenuTextFoodCard1} from '../menuFoodCards/menuTextFoodCards/index'
 
 
@@ -15,17 +15,23 @@ class generalFoods extends React.Component {
         };
     }
 
-    // componentDidMount(){
-    //     console.log(this.state.foods);
-    // }
+    componentDidMount(){
+        this.nameChanger();
+    }
+
+    nameChanger = () => {
+        if(this.state.menuTextName === "Salad"){
+            this.setState({menuTextName: "Salad & Soup"});
+        }
+    }
 
 
     render() {
-        console.log(this.state.newTextInformation);
         //Making sure that all our information is collected so the program doesn't crash when nothing is returned
         if (!this.state.foods && !this.state.newTextInformation) {
             return <h1>Loading information...</h1>
         }
+
         return (
             <div>
 
@@ -37,7 +43,7 @@ class generalFoods extends React.Component {
                         // let whichDivIsIt2 = item.div;
                         //Loading in different cards depending on what type of information comes from the database
                         return <div key={i}>
-                           <FoodCards1 item={item}/>
+                        {item.div === 2 ? <FoodCards1 item={item}/> : <FoodCards3 item={item}/>}
                         </div>
                     })}
                 </div>

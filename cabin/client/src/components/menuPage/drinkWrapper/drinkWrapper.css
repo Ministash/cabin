@@ -96,9 +96,6 @@
       transition: all ease 0.1;
   }
 
-  .line-height-dropdown-two{
-    line-height: 50px;
-  }
 
   .line-height-dropdown-one{
     line-height: 50px;
@@ -137,7 +134,7 @@
     }
 }
 
-@media screen and (max-width: 920px){
+@media screen and (max-width: 935px){
     .menu-list-drink-nav-description{
         margin: 0 auto;
 
