@@ -1,7 +1,7 @@
 import React from "react";
-import './location.css'
+import './hours.css'
 
-class location extends React.Component {
+class hours extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -16,11 +16,11 @@ class location extends React.Component {
             <div className='location-page-location-box-wrapper'>
 
                 <div className="location-text-wrapper">
-                    <div className="location-text">Location</div>
+                    <div className="location-text">Hours</div>
                     <div className='location-text-underline'></div>
                 </div>
 
-                <div className="location-maps-wrapper">
+                <div className="hours-times-wrapper">
                         
                 </div>
 
@@ -30,4 +30,4 @@ class location extends React.Component {
     }
 };
 
-export default location;
+export default hours;

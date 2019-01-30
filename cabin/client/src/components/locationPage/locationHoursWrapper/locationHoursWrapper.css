@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Yellowtail');
+
 .separator-3{
     background: #441c10;
     margin: 0 auto;
@@ -12,4 +14,29 @@
     margin-bottom: 50px;
     height: 600px;
     width: 1300px;
+    display: grid;
+    grid-template-columns: 450px 400px 450px;
+}
+
+.location-hours-middle-cursive-text-wrapper{
+    margin: 0 auto;
+    margin-top: 220px;
+    width: 300px;
+    opacity: 0;
+    transition: 0.5s ease all;
+}
+
+.location-hours-middle-cursive-text-wrapper:hover{
+    opacity: 1;
+}
+
+.location-hours-middle-cursive-text{
+    font-size: 50px;
+    text-align: center;
+    color: #441c10;
+}
+
+
+.font-cursive{
+    font-family: 'Yellowtail';
 }

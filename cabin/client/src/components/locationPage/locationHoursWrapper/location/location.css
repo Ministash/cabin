@@ -1,4 +1,35 @@
 .location-page-location-box-wrapper{
     width: 450px;
-    height: 450px;
+    height: 500px;
+    position: relative;
+}
+
+.location-text-wrapper{
+    margin: 0 auto;
+    width: 200px;
+    
+}
+
+.location-text{
+    font-size: 45px;
+    text-align: center;
+    border-bottom: 5px solid #441c10;
+}
+
+.location-text-underline{
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 160px;
+    height: 5px;
+    background: #441c10;
+}
+
+
+.location-maps-wrapper{
+    position: absolute;
+    bottom: 5px;
+    width: 450px;
+    height: 350px;
+    background: url("../../locationBanner/Capture1.png");
+    background-size: cover;
 }
