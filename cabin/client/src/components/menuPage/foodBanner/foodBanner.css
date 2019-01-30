@@ -1,0 +1,10 @@
+.background-menu-banner{
+    margin: 0 auto;
+    margin-top: 20px;
+    background: #2e1f01;
+    height: 50vh;
+    min-height: 500px;
+    width: 90%;
+    background: url("../foodBanner/download1.jpg");
+    background-size: cover;
+}

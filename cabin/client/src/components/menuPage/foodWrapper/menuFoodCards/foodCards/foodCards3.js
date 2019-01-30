@@ -12,7 +12,8 @@ const foodCards3 = props => (
         </div>
 
         <div className="menu-list-food-cards-included-wrapper">
-
+        <div className="menu-list-food-cards-madeW-3">Comes With Choice Of:</div>
+        <div className="menu-list-food-cards-ingredients-3">{props.item.servedW}</div>
         </div>
 
     </div>

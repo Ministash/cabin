@@ -78,6 +78,15 @@
     height: 100%;
 }
 
+.box-three-text{
+    text-align: center;
+    font-size: 45px;
+    line-height: 260px;
+    color: white;
+    width: 100%;
+    height: 100%;
+}
+
 .body-boxes-overlay-two:hover{
     opacity: 0.8;
 }
@@ -126,6 +135,15 @@
     .box-two-text{
         text-align: center;
         font-size: 35px;
+        line-height: 200px;
+        color: white;
+        width: 100%;
+        height: 100%;
+    }
+
+    .box-three-text{
+        text-align: center;
+        font-size: 31px;
         line-height: 200px;
         color: white;
         width: 100%;
@@ -211,6 +229,15 @@
         height: 100%;
     }
 
+    .box-three-text{
+        text-align: center;
+        font-size: 50px;
+        line-height: 300px;
+        color: white;
+        width: 100%;
+        height: 100%;
+    }
+
     .box-one-text{
         text-align: center;
         font-size: 50px;
@@ -273,6 +300,15 @@
     }
 
     .box-two-text{
+        text-align: center;
+        font-size: 50px;
+        line-height: 200px;
+        color: white;
+        width: 100%;
+        height: 100%;
+    }
+
+    .box-three-text{
         text-align: center;
         font-size: 50px;
         line-height: 200px;

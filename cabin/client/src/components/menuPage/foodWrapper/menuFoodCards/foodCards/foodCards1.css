@@ -86,22 +86,22 @@
 }
 
 .menu-list-food-cards-madeW-wrapper{
-    float: left;
+    /* float: left;
     margin-top: 20px;
     margin-left: 20px;
     width: 115px;
     height: 201px;
-    border-right: #d8c37a solid 4px;
-    border-top: 4px #d8c37a solid;
+    border-right: #d8c37a solid 5px;
+    border-top: 5px #d8c37a solid; */
 
 }
 
 .menu-list-food-cards-included-wrapper{
-    float: right;
+    /* float: right;
     margin-top: 20px;
     margin-right: 20px;
-    width: 111px;
+    width: 113px;
     height: 201px;
-    border-top: 4px #d8c37a solid;
-
+    border-top: 5px #d8c37a solid; */
+    
 }

@@ -18,7 +18,7 @@ class Boxes extends React.Component {
 
                     <div>
                         <div className="body-boxes-overlay-two">
-                            <div className="box-two-text x">Location</div>
+                            <div className="box-three-text x">Location + Hours</div>
                         </div>
                         <img src={photo1} className="second-box" alt="location" />
                     </div>

@@ -3,6 +3,7 @@ import "./menuPage.css";
 import Navbar from "../../components/navBar/index";
 import DrinkWrapper from "../menuPage/drinkWrapper/index";
 import FoodWrapper from '../menuPage/foodWrapper/index';
+import FoodBanner from '../menuPage/foodBanner/index';
 
 
 class Menu extends React.Component {
@@ -18,6 +19,7 @@ class Menu extends React.Component {
         return (
             <div>
                 <Navbar></Navbar>
+                <FoodBanner/>
                 <DrinkWrapper props={this.state.passingProps}/>
                 <div className="separator-2"></div>
                 <FoodWrapper props={this.state.passingProps}/>

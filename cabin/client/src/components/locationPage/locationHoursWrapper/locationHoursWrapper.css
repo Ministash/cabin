@@ -1,8 +1,15 @@
-.separator-2{
+.separator-3{
     background: #441c10;
     margin: 0 auto;
     height: 5px;
     width: 60vw;
     margin-bottom: 50px;
     margin-top: 50px;
+}
+
+.location-hours-wrapper{
+    margin: 0 auto;
+    margin-bottom: 50px;
+    height: 600px;
+    width: 1300px;
 }

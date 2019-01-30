@@ -1,0 +1,10 @@
+.background-location-banner{
+    margin: 0 auto;
+    margin-top: 20px;
+    background: #2e1f01;
+    height: 70vh;
+    min-height: 500px;
+    width: 90%;
+    background: url("./Capture1.png");
+    background-size: cover;
+}

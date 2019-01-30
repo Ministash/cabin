@@ -6,7 +6,7 @@
     bottom: 0px;
     z-index: 10;
     display: grid;
-    grid-template-columns: 10px 80px auto 100px 100px 100px 100px;
+    grid-template-columns: 10px 80px auto 100px 100px 120px 100px;
     border-bottom: 2px solid rgba(0, 0, 0, 0.192);
 }
 
