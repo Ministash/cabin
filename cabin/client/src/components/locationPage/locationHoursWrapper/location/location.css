@@ -30,6 +30,6 @@
     bottom: 5px;
     width: 450px;
     height: 350px;
-    background: url("../../locationBanner/Capture1.png");
+    border: solid 5px #d8c37a;
     background-size: cover;
 }

@@ -20,7 +20,6 @@
 
 .location-hours-middle-cursive-text-wrapper{
     margin: 0 auto;
-    margin-top: 220px;
     width: 300px;
     opacity: 0;
     transition: 0.5s ease all;
@@ -31,6 +30,7 @@
 }
 
 .location-hours-middle-cursive-text{
+    margin-top: 220px;
     font-size: 50px;
     text-align: center;
     color: #441c10;

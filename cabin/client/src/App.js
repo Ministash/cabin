@@ -6,6 +6,7 @@ import MenuPage from './components/menuPage';
 import LocationPage from './components/locationPage';
 import AOS from 'aos';
 
+
 AOS.init();
 
 class App extends Component {

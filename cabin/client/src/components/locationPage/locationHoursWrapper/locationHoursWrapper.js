@@ -22,7 +22,7 @@ class locationHoursWrapper extends React.Component {
                     <Location></Location>
 
                     <div className="location-hours-middle-cursive-text-wrapper">
-                            <div className="location-hours-middle-cursive-text font-cursive">
+                            <div className="location-hours-middle-cursive-text font-cursive x">
                                     Come Visit Us Soon!
                             </div>
                     </div>

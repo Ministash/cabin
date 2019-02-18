@@ -1,5 +1,6 @@
 import React from "react";
 import './location.css'
+import MapContainer from '../../../googleMaps/index';
 
 class location extends React.Component {
     constructor(props) {
