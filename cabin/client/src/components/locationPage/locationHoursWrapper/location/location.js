@@ -22,7 +22,7 @@ class location extends React.Component {
                 </div>
 
                 <div className="location-maps-wrapper">
-                        
+                        Hello world
                 </div>
 
             </div>
